@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap');
+
+
+body {
+    font-family: 'Euclid Circular B', sans-serif !important;
+    width: 100%;
+    overflow-x: hidden;
+    }
+
+    .navbar-content h3.ant-typography {
+        font-weight: 500;
+        font-size: 18px;
+        color: #081459;
+    }
+
+    .navbar-content button.ant-btn {
+        border: none;
+        box-shadow: none;
+        color: #414040;
+        font-weight: 500;
+        font-size: 1.2em;
+        background: transparent;
+    }
+
+    .navbar-content svg {
+    height: 22px;
+    padding-top: 7px;
+    }
+
+    .welcome-content {
+    background: #263dbf1f;
+    height: 94vh;
+    padding: 2em 7em;
+    }
+
+    .ant-page-header.navbar-content {
+    padding: 0.5em 7em;
+    position: sticky;
+    top: 0px;
+    background: #fffffff5;
+    z-index: 21;
+    }
+
+    .welcome-content {
+        background: #263dbf1f;
+        height: 94vh;
+        padding: 2em 7em;
+      }
+
+      .ant-page-header.navbar-content {
+        padding: 0.5em 7em;
+        position: sticky;
+        top: 0px;
+        background: #fffffff5;
+        z-index: 21;
+      }
+
+      .welcome-content h1.ant-typography {
+        color: #081459;
+        font-size: 2em;
+        width: 79%;
+        margin-top: 4em;
+        margin-bottom: 1em;
+      }
+
+      .welcome-content h3.ant-typography {
+        color: #7A7575;
+        font-weight: 500;
+        font-size: 14px;
+        width: 75%;
+        margin-top: 1em;
+      }
+      .welcome-content button.ant-btn:hover {
+        background: #081459;
+      }
+      .welcome-content button.ant-btn {
+        background: #0420BF;
+        color: white;
+        width: 67%;
+        margin-top: 3em;
+        height: 4em;
+        font-weight: bold;
+      }
+
+      .welcome-content .right-content{
+        background: url('/images/welcome-bg.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 74%;
+        width: 90%;
+        margin-top: 3em;
+        background-position: center;
+      }
+
+      .demostrate-actions {
+        background: white;
+        padding: 1em;
+        width: 20em;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px #b5b3b342;
+        margin-top: 1em;
+      }
+
+      .demostrate-actions.action-1 {
+        margin-top: 5em;
+      }
+
+      .demostrate-actions.action-2 {
+        margin-top: 9em;
+        margin-left: 59%;
+      }
+
+      .bg-transparent{
+        background: #F8F8F8;
+      }
+
+      .demostrate-actions img.ant-image-img {
+        height: 3em;
+        width: 3em;
+        border: 2px solid #263DBF;
+        border-radius: 50%;
+        margin-top: 0.4em;
+      }
+
+      .demostrate-actions svg {
+        font-size: 22px;
+        margin-top: 0.8em;
+      }
+      .demostrate-actions h5.ant-typography {
+        font-weight: 700;
+        color: #081459;
+        font-size: 13px;
+      }
+
+      .demostrate-actions h5.ant-typography.time {
+        font-weight: 300;
+        font-size: 11px;
+      }
+
+      .post-types {
+        background: #ffff;
+        padding: 0.8em 0.8em;
+        border-radius: 9px;
+        height: 3.7em;
+        margin-right: 1em;
+        cursor: pointer;
+      }
+
+      .post-types:hover {
+        transform: scale(1.06);
+        transition: ease-in-out 0.4s;
+      }
+
+      .ant-page-header.navbar-content.navbar-2 {
+        background: #F8F8F8;
+        position: sticky;
+        top: 57px;
+      }
+      .ant-page-header.navbar-content.navbar-2 h4.ant-typography {
+        font-size: 12px;
+        margin-top: 0.6em;
+        margin-left: 1em;
+        font-weight: bold;
+        color: #535353;
+      }
+
+      .bg-transparent.posts-container {
+        padding: 2em 7em;
+      }
+
+      .post-container-1 {
+        background: #ffff;
+        padding: 1em;
+        border-radius: 20px;
+        box-shadow: 0 2px 4px #00000008;
+        min-height: 26em;
+      }
+
+      .post-container-1 h2.ant-typography {
+        font-size: 15px;
+        margin-top: 0;
+        color: #464444;
+      }
+
+      .post-container-1 span.ant-typography {
+        font-size: 12px;
+        line-height: 23px;
+        color: #535353;
+      }
+      .post-container-1 img.ant-image-img.cover-bg {
+        height: 23em;
+        width: 15em;
+        margin-right: 1em;
+        border-radius: 20px;
+      }
+
+      img.ant-image-img.post-profile-pic {
+        height: 3em;
+        border-radius: 50%;
+        width: 3em;
+        margin-top: 0.7em;
+      }
+
+      h3.ant-typography.profile-name {
+        font-size: 11px;
+        margin-top: 1em;
+      }
+
+      h5.ant-typography.posted-at {
+        font-size: 10px;
+        font-weight: 500;
+        color: #464444;
+        margin-top: -10px;
+      }
+
+      .ant-space.ant-space-horizontal.ant-space-align-center.post-languages {
+        margin-top: 1.5em;
+      }
+
+      img.ant-image-img.cover-bg-2 {
+        border-radius: 20px;
+      }
+
+      .margin_top_10{
+        margin-top: 30px;
+      }
+
+      .post-container-1:hover {
+        transform: scale(1.03);
+        transition: ease-in-out 0.3s;
+        cursor: pointer;
+      }
+
+      .ant-row.pad64.blog-container {
+        width: 86vw;
+        margin: auto;
+    }
+    .action {
+      border: 1px solid #CECECE;
+      margin-top: 4em;
+      width: 3.6em;
+      padding: 14px;
+      border-radius: 6px;
+      padding-bottom: 11px;
+  }
+
+  .action svg{
+    height: 20px;
+    width: 20px;
+    color: #3A3E3E;
+  }
+
+  .right-actions .action {
+    margin-left: 9vw;
+}
+.ant-col.ant-col-4.action-container {
+  position: static;
+}
+
+.action:hover {
+  background: #f7f7f7;
+  cursor: pointer;
+  transition: ease-in-out 0.3s;
+}
+
+.main-post-content img{
+  width: 100%;
+}
+
+h1.ant-typography.post-title {
+  text-align: center;
+  margin: 1em 0 !important;
+  color: #081459;
+  line-height: 48px;
+}
+
+img.ant-image-img.post-cover-bg {
+  height: 67vh;
+  width: 57vw;
+}
+
+pre {
+  background: #081459;
+  color: white;
+  padding: 3em;
+  font-family: 'Source Code Pro', monospace;
+}
+
+code {
+  font-family: 'Source Code Pro';
+}
+
+.ant-divider.ant-divider-horizontal.post-divider {
+  background: #535353;
+  margin-top: 4em;
+}
+
+.comment-section h3.ant-typography {
+  color: #0420BF;
+  font-weight: 500;
+  font-size: 22px;
+  margin-top: 2em;
+}
+
+h5.ant-typography.time {
+  color: #5C82F2;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+span.ant-typography.content {
+  color: #464444;
+}
+
+.comment-section img.ant-image-img.post-profile-pic {
+  height: 3em;
+  border-radius: 50%;
+  width: 3em;
+  margin-top: 0.7em;
+  margin-right: 1em;
+  position: relative;
+  top: -3em;
+  border: 1.2px solid #0420BF;
+}

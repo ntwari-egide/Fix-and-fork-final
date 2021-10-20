@@ -1,0 +1,94 @@
+
+
+  .navbar-content h3.ant-typography {
+      font-weight: 500;
+      font-size: 18px;
+      color: #081459;
+  }
+
+  .navbar-content button.ant-btn {
+      border: none;
+      box-shadow: none;
+      color: #414040;
+      font-weight: 500;
+      font-size: 1.2em;
+  }
+
+  .navbar-content svg {
+    height: 22px;
+    padding-top: 7px;
+  }
+
+  .welcome-content {
+    background: #263dbf1f;
+    height: 90vh;
+    padding: 2em 7em;
+  }
+
+  .ant-page-header.navbar-content {
+    padding: 0.5em 7em;
+  }
+
+  .welcome-content h1.ant-typography {
+    color: #081459;
+    font-size: 2em;
+    width: 79%;
+    margin-top: 4em;
+    margin-bottom: 1em;
+  }
+
+  .welcome-content h3.ant-typography {
+    color: #7A7575;
+    font-weight: 500;
+    font-size: 14px;
+    width: 75%;
+    margin-top: 1em;
+  }
+  .welcome-content button.ant-btn:hover {
+    background: #081459;
+  }
+  .welcome-content button.ant-btn {
+    background: #0420BF;
+    color: white;
+    width: 67%;
+    margin-top: 3em;
+    height: 4em;
+    font-weight: bold;
+  }
+
+  .welcome-content .right-content{
+    background: url('../assets/images/welcome-bg.png');
+    background-size: cover;
+  }
+
+  .demostrate-actions {
+    background: white;
+    padding: 1em;
+    width: 20em;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #b5b3b342;
+    margin-top: 1em;
+  }
+
+  .demostrate-actions img.ant-image-img {
+    height: 3em;
+    width: 3em;
+    border: 2px solid #263DBF;
+    border-radius: 50%;
+    margin-top: 0.4em;
+  }
+
+  .demostrate-actions svg {
+    font-size: 22px;
+    margin-top: 0.8em;
+  }
+  .demostrate-actions h5.ant-typography {
+    font-weight: 700;
+    color: #081459;
+    font-size: 13px;
+  }
+
+  .demostrate-actions h5.ant-typography.time {
+    font-weight: 300;
+    font-size: 11px;
+  }
