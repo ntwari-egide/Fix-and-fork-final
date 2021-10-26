@@ -93,7 +93,7 @@ const Home = ({
                             <Title level={3}>Comments (3)</Title>
 
                             <Space direction="horizontal">
-                                <Image src={'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'} className="post-profile-pic" />
+                                <Image preview={false} src={'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'} className="post-profile-pic" />
 
                                 <Space className="comments-container" direction="vertical">
                                     <Title level={4} className="contributor">Anonymous Contributor</Title>

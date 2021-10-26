@@ -49,7 +49,7 @@ export default function Home() {
               <div className="demostrate-actions action-1">
                 <Row>
                   <Col span={6}>
-                    <Image src={'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'} />
+                    <Image preview={false} src={'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'} />
                   </Col>
                   <Col span={16}>
                     <Title level={5}>Started following you</Title>
@@ -65,7 +65,7 @@ export default function Home() {
               <div className="demostrate-actions action-2">
                 <Row>
                   <Col span={6}>
-                    <Image src={'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'} />
+                    <Image preview={false} src={'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'} />
                   </Col>
                   <Col span={16}>
                     <Title level={5}>Liked your solution</Title>
@@ -80,7 +80,7 @@ export default function Home() {
               <div className="demostrate-actions action-3">
                 <Row>
                   <Col span={6}>
-                    <Image src={'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'} />
+                    <Image preview={false} src={'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'} />
                   </Col>
                   <Col span={16}>
                     <Title level={5}>Forked your solution</Title>
@@ -106,76 +106,79 @@ export default function Home() {
           backIcon={null}
          >
 
-          <Row className="header-navbar">
-            <Col span={3} className="post-types">
-              <Row gutter={16}>
-                <Col><ImEarth fontSize={16} color={"#535353"} /></Col>
-                <Col><Title level={4}>Global</Title></Col>
-                <Col><Title level={4}>5</Title></Col>
-              </Row>              
-            </Col>
+           <Space size="small" direction="horizontal">
+              <div className="post-types-container">
+                <Space className="post-types">
+                  <Space>
+                    <Col><ImEarth fontSize={16} color={"#535353"} /></Col>
+                    <Col><Title level={4}>Global</Title></Col>
+                    <Col><Title level={4}>150</Title></Col>
+                  </Space>              
+                </Space>
 
-            <Col span={3} className="post-types">
-              <Row>
-                <Col><FaReact fontSize={16} color={"#535353"} /></Col>
-                <Col><Title level={4}>React Js</Title></Col>
-                <Col><Title level={4}>8</Title></Col>
-              </Row>              
-            </Col>
+                <Space className="post-types">
+                  <Space>
+                    <Col><FaReact fontSize={16} color={"#535353"} /></Col>
+                    <Col><Title level={4}>React Js</Title></Col>
+                    <Col><Title level={4}>8</Title></Col>
+                  </Space>              
+                </Space>
 
-            <Col span={3} className="post-types">
-              <Row>
-                <Col><FaVuejs fontSize={16} color={"#535353"} /></Col>
-                <Col><Title level={4}>Vue Js</Title></Col>
-                <Col><Title level={4}>7</Title></Col>
-              </Row>              
-            </Col>
+                <Space className="post-types">
+                  <Space>
+                    <Col><FaVuejs fontSize={16} color={"#535353"} /></Col>
+                    <Col><Title level={4}>Vue Js</Title></Col>
+                    <Col><Title level={4}>7</Title></Col>
+                  </Space>              
+                </Space>
 
-            <Col span={3} className="post-types">
-              <Row>
-                <Col><SiSpringboot fontSize={16} color={"#535353"} /></Col>
-                <Col><Title level={4}>Spring</Title></Col>
-                <Col><Title level={4}>2</Title></Col>
-              </Row>              
-            </Col>
+                <Space className="post-types">
+                  <Space>
+                    <Col><SiSpringboot fontSize={16} color={"#535353"} /></Col>
+                    <Col><Title level={4}>Spring</Title></Col>
+                    <Col><Title level={4}>2</Title></Col>
+                  </Space>              
+                </Space>
 
-            <Col span={3} className="post-types">
-              <Row>
-                <Col><SiJava fontSize={16} color={"#535353"} /></Col>
-                <Col><Title level={4}>Java</Title></Col>
-                <Col><Title level={4}>9</Title></Col>
-              </Row>              
-            </Col>
+                <Space className="post-types">
+                  <Space>
+                    <Col><SiJava fontSize={16} color={"#535353"} /></Col>
+                    <Col><Title level={4}>Java</Title></Col>
+                    <Col><Title level={4}>9</Title></Col>
+                  </Space>              
+                </Space>
 
-            <Col span={3} className="post-types">
-              <Row>
-                <Col><DiPhp fontSize={16} color={"#535353"} /></Col>
-                <Col><Title level={4}>Php</Title></Col>
-                <Col><Title level={4}>5</Title></Col>
-              </Row>              
-            </Col>
+                <Space className="post-types">
+                  <Space>
+                    <Col><DiPhp fontSize={16} color={"#535353"} /></Col>
+                    <Col><Title level={4}>Php</Title></Col>
+                    <Col><Title level={4}>50+</Title></Col>
+                  </Space>              
+                </Space>
 
-            <Col span={3} className="post-types">
-              <Row>
-                <Col><FaProjectDiagram fontSize={16} color={"#535353"} /></Col>
-                <Col><Title level={4}>Open Source</Title></Col>
-                <Col><Title level={4}>4</Title></Col>
-              </Row>              
-            </Col>
+                <Space className="post-types">
+                  <Space>
+                    <Col><FaProjectDiagram fontSize={16} color={"#535353"} /></Col>
+                    <Col><Title level={4}>Open Source</Title></Col>
+                    <Col><Title level={4}>4</Title></Col>
+                  </Space>              
+                </Space>
+                
+              </div>
 
-            <Col className="post-types last-type">
-              <svg xmlns="http://www.w3.org/2000/svg" width="3.891" height="15.75" viewBox="0 0 3.891 15.75">
-                <g id="Icon_ionic-ios-menu" data-name="Icon ionic-ios-menu" transform="translate(-4.5 -10.125)">
-                  <path id="Path_1" data-name="Path 1" d="M8.228,12.375H4.662c-.089,0-.162-.506-.162-1.125h0c0-.619.073-1.125.162-1.125H8.228c.089,0,.162.506.162,1.125h0C8.391,11.869,8.318,12.375,8.228,12.375Z" transform="translate(0)"/>
-                  <path id="Path_2" data-name="Path 2" d="M8.228,19.125H4.662c-.089,0-.162-.506-.162-1.125h0c0-.619.073-1.125.162-1.125H8.228c.089,0,.162.506.162,1.125h0C8.391,18.619,8.318,19.125,8.228,19.125Z" transform="translate(0)"/>
-                  <path id="Path_3" data-name="Path 3" d="M8.228,25.875H4.662c-.089,0-.162-.506-.162-1.125h0c0-.619.073-1.125.162-1.125H8.228c.089,0,.162.506.162,1.125h0C8.391,25.369,8.318,25.875,8.228,25.875Z" transform="translate(0)"/>
-                </g>
-              </svg>
-            </Col>
+              <Space className="post-types last-type">
+                <svg xmlns="http://www.w3.org/2000/svg" width="3.891" height="15.75" viewBox="0 0 3.891 15.75">
+                  <g id="Icon_ionic-ios-menu" data-name="Icon ionic-ios-menu" transform="translate(-4.5 -10.125)">
+                    <path id="Path_1" data-name="Path 1" d="M8.228,12.375H4.662c-.089,0-.162-.506-.162-1.125h0c0-.619.073-1.125.162-1.125H8.228c.089,0,.162.506.162,1.125h0C8.391,11.869,8.318,12.375,8.228,12.375Z" transform="translate(0)"/>
+                    <path id="Path_2" data-name="Path 2" d="M8.228,19.125H4.662c-.089,0-.162-.506-.162-1.125h0c0-.619.073-1.125.162-1.125H8.228c.089,0,.162.506.162,1.125h0C8.391,18.619,8.318,19.125,8.228,19.125Z" transform="translate(0)"/>
+                    <path id="Path_3" data-name="Path 3" d="M8.228,25.875H4.662c-.089,0-.162-.506-.162-1.125h0c0-.619.073-1.125.162-1.125H8.228c.089,0,.162.506.162,1.125h0C8.391,25.369,8.318,25.875,8.228,25.875Z" transform="translate(0)"/>
+                  </g>
+                </svg>
+              </Space>
+            
+           </Space>
 
-          </Row>
-
-         </PageHeader>
+          </PageHeader>
 
          <PostsComponent />
          <PostsComponent />

@@ -72,7 +72,13 @@ body {
       }
       .welcome-content button.ant-btn:hover {
         background: #081459;
+        border: 1px solid #4f67b6;
       }
+
+      .ant-image-mask {
+        border-radius: 20px;
+      }
+
       .welcome-content button.ant-btn {
         background: #0420BF;
         color: white;
@@ -152,7 +158,7 @@ body {
       }
 
       .ant-page-header.navbar-content.navbar-2 {
-        background: #F8F8F8;
+        background: #f8f8f8fa;
         position: sticky;
         top: 57px;
       }
@@ -173,7 +179,8 @@ body {
         padding: 1em;
         border-radius: 20px;
         box-shadow: 0 2px 4px #00000008;
-        min-height: 26em;
+        min-height: 59vh !important;
+        width: 36vw;
       }
 
       .post-container-1 h2.ant-typography {
@@ -188,7 +195,7 @@ body {
         color: #535353;
       }
       .post-container-1 img.ant-image-img.cover-bg {
-        height: 23em;
+        height: 51vh;
         width: 15em;
         margin-right: 1em;
         border-radius: 20px;
@@ -219,6 +226,7 @@ body {
 
       img.ant-image-img.cover-bg-2 {
         border-radius: 20px;
+        height: 35vh;
       }
 
       .margin_top_10{
@@ -321,4 +329,22 @@ span.ant-typography.content {
   position: relative;
   top: -3em;
   border: 1.2px solid #0420BF;
+}
+
+.demostrate-actions:hover {
+  transform: scale(1.05);
+  transition: ease-in-out 0.5s;
+}
+
+.post-types-container{
+    width: 81vw;
+}
+
+.post-container-1.post-container-2 {
+  width: 23vw;
+  min-height: 54vh;
+}
+
+.post-description{
+
 }
