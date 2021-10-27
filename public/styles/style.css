@@ -11,6 +11,7 @@ body {
         font-weight: 500;
         font-size: 18px;
         color: #081459;
+        cursor: pointer;
     }
 
     .navbar-content button.ant-btn {
@@ -73,10 +74,6 @@ body {
       .welcome-content button.ant-btn:hover {
         background: #081459;
         border: 1px solid #4f67b6;
-      }
-
-      .ant-image-mask {
-        border-radius: 20px;
       }
 
       .welcome-content button.ant-btn {
@@ -355,6 +352,10 @@ span.ant-typography.content {
 
 .web-welcome-content{
   display: block;
+}
+
+.post-languages {
+  float: right !important;
 }
 
 /* Small screen devices (600px and above) */
