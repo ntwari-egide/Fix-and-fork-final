@@ -349,11 +349,27 @@ span.ant-typography.content {
   display: none;
 }
 
+.mobile-welcome-content{
+  display: none !important;
+}
+
+.web-welcome-content{
+  display: block;
+}
+
 /* Small screen devices (600px and above) */
 @media only screen and (max-width: 595px){
 
   .ant-space.ant-space-horizontal.ant-space-align-center{
     display: block;
+  }
+
+  .mobile-welcome-content{
+    display: block !important;
+  }
+  
+  .web-welcome-content{
+    display: none !important;
   }
 
   .mobile-post-types {
@@ -378,7 +394,7 @@ span.ant-typography.content {
     width: 83vw;
   }
 
-  .demostrate-actions{ display: none;}
+  /* .demostrate-actions{ display: none;} */
   .bg-transparent.posts-container {
     padding: 0 2em;
   }
@@ -425,12 +441,90 @@ span.ant-typography.content {
     border-radius: 10px;
     margin-top: 17px;
   }
-  h4.ant-typography {
-    font-size: 17px !important;
+  .ant-space.ant-space-post-types h4.ant-typography {
+    font-size: 13px !important;
     margin-top: 12px !important;
   }
 
   .ant-space.ant-space-post-types svg {
     margin-top: 15px !important;
+  }
+  button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right,
+  button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--left {
+    background: #d9d9d9;
+    margin-top: 14px;    
+  }
+  .ant-row.welcome-content {
+    display: flex;
+    flex-direction: column-reverse;
+    border: 1px solid red;
+  }
+  .ant-row.welcome-content {
+    padding: 0 31px;
+  }
+  .ant-space.ant-space-vertical.welcome-content.mobile-welcome-content {
+    margin: 0 !important;
+    padding: 1em 2em;
+  }
+  .demostrate-actions img.ant-image-img {
+    height: 26px;
+    width: 26px;
+  }
+  .demostrate-actions h5.ant-typography {
+    font-weight: 700;
+    color: #081459;
+    font-size: 7px;
+  }
+  .demostrate-actions h5.ant-typography.time {
+    font-weight: 300;
+    font-size: 7px;
+  }
+  .demostrate-actions svg {
+    font-size: 12px;
+    margin-top: 0.9em;
+  }
+
+  .demostrate-actions {
+    width: 38vw;
+    height: 7vh;
+    padding: 7px;
+  }
+  .welcome-content .right-content {
+    background-position: 50px;
+    margin-top: -86px !important;
+  }
+
+  .demostrate-actions.action-1 {
+    position: relative;
+    top: 10vh;
+  }
+  .demostrate-actions.action-3 {
+    position: relative;
+    top: -2em;
+  }
+
+  svg#heart-add-fill {
+    height: 15px;
+    width: 3vw;
+  }
+
+  .demostrate-actions.action-2 {
+    position: relative;
+    top: -2em;
+  }
+
+  .welcome-content h1.ant-typography {
+    margin-top: 14px !important;
+    font-size: 18px !important;
+  }
+
+  .welcome-content h3.ant-typography {
+    font-size: 11px;
+  }
+
+  .welcome-content button.ant-btn {
+    width: 43vw;
+    font-size: 10px;
+    height: 8vh;
   }
 }

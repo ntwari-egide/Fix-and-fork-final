@@ -37,7 +37,7 @@ export default function Home() {
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 2,
+      items: 3,
       partialVisibilityGutter: 30 // this is needed to tell the amount of px that should be visible.
     }
   }
@@ -54,9 +54,76 @@ export default function Home() {
       <main>
         <HeaderNavbar />
 
+
+        {/* mobile welcome content */}
+
+        <Space direction="vertical" className="welcome-content mobile-welcome-content">
+          <Col className="right-content">
+
+          <div className="demostrate-actions action-1">
+            <Row>
+              <Col span={6}>
+                <Image preview={false} src={'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'} />
+              </Col>
+              <Col span={16}>
+                <Title level={5}>Started following you</Title>
+                <Title level={5} className="time">Today 09. July</Title>
+              </Col>
+              <Col span={2}>
+                  <RiUserFollowLine fontSize={10} color="#5C82F2" />
+              </Col>
+            </Row>
+          </div>
+
+
+          <div className="demostrate-actions action-2">
+            <Row>
+              <Col span={6}>
+                <Image preview={false} src={'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'} />
+                      </Col>
+                      <Col span={16}>
+                        <Title level={5}>Liked your solution</Title>
+                        <Title level={5} className="time">Today 09. July</Title>
+                      </Col>
+                      <Col span={2}>
+                          <FiGithub fontSize={10} color="#0420BF" />
+                      </Col>
+                    </Row>
+                  </div>
+
+                  <div className="demostrate-actions action-3">
+                    <Row>
+                      <Col span={6}>
+                        <Image preview={false} src={'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'} />
+                      </Col>
+                      <Col span={16}>
+                        <Title level={5}>Forked your solution</Title>
+                        <Title level={5} className="time">Today 09. July</Title>
+                      </Col>
+                      <Col span={2}>
+                        <svg id="heart-add-fill" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                          <path id="Path_9" data-name="Path 9" d="M0,0H24V24H0Z" fill="none"/>
+                          <path id="Path_10" data-name="Path 10" d="M19,14v3h3v2H19v3H17V19H14V17h3V14Zm1.243-9.243a6,6,0,0,1,.507,7.91,6,6,0,0,0-8.061,8.127l-.69.691L3.521,12.993A6,6,0,0,1,12,4.529a6,6,0,0,1,8.242.228Z" fill="#f26a4b"/>
+                        </svg>
+
+                      </Col>
+                    </Row>
+                  </div>
+                  </Col>
+          <Col>
+            <Title level={1}>
+              Never allow the same bug to bite you twice, Find here best effective solution
+            </Title>
+            <Title level={3}>
+              Aliquam cursus libero a metus ornare, eget mollis diam mollis. Nunc mi lectus, iaculis eget tortor non, pellentesque consequat mauris.
+            </Title>
+            <Button>GET STARTED</Button>
+          </Col>
+        </Space>
+
         {/* welcome content  */}
 
-        <Row className="welcome-content">
+        <Row className="welcome-content web-welcome-content">
           <Col span={9}>
             <Title level={1}>
               Never allow the same bug to bite you twice, Find here best effective solution
@@ -135,28 +202,44 @@ export default function Home() {
               <div>
                 <Space direction="horizontal">
                   <Space direction="post-types">
-                      <ImEarth fontSize={16} color={"#535353"} />
-                      <Title level={4}>Global</Title>
-                      <Title level={4}>150</Title>
+                      <FaReact fontSize={16} color={"#535353"} />
+                      <Title level={4}>React</Title>
+                      <Title level={4}>15</Title>
                   </Space>
                 </Space>
               </div>
 
               <Space direction="horizontal">
                 <Space direction="post-types">
-                    <ImEarth fontSize={16} color={"#535353"} />
-                    <Title level={4}>Global</Title>
-                    <Title level={4}>150</Title>
+                    <FaVuejs fontSize={16} color={"#535353"} />
+                    <Title level={4}>Vue Js</Title>
+                    <Title level={4}>4</Title>
                 </Space>
               </Space>
 
-              {/* <Space className="post-types">
-                <Space direction="horizontal"> 
-                    <Col><ImEarth fontSize={16} color={"#535353"} /></Col>
-                    <Col><Title level={4}>Global</Title></Col>
-                    <Col><Title level={4}>150</Title></Col>
-                  </Space>              
-                </Space> */}
+              <Space direction="horizontal">
+                <Space direction="post-types">
+                    <SiSpringboot fontSize={16} color={"#535353"} />
+                    <Title level={4}>Spring</Title>
+                    <Title level={4}>7</Title>
+                </Space>
+              </Space>
+
+              <Space direction="horizontal">
+                <Space direction="post-types">
+                    <SiJava fontSize={16} color={"#535353"} />
+                    <Title level={4}>Java</Title>
+                    <Title level={4}>3</Title>
+                </Space>
+              </Space>
+
+              <Space direction="horizontal">
+                <Space direction="post-types">
+                    <DiPhp fontSize={16} color={"#535353"} />
+                    <Title level={4}>Php</Title>
+                    <Title level={4}>6</Title>
+                </Space>
+              </Space>
           </Carousel>
         </div>
 
