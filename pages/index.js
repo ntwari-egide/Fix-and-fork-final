@@ -2,7 +2,6 @@ import { Button, Col, Image, PageHeader, Row, Space, Typography } from 'antd'
 import Head from 'next/head'
 import 'antd/dist/antd.css';
 import {RiUserFollowLine} from "react-icons/ri"
-import {BiSearch} from "react-icons/bi"
 import { Anchor } from 'antd';
 import {FiGithub} from "react-icons/fi"
 import {ImEarth} from "react-icons/im"
@@ -15,12 +14,34 @@ import {FaProjectDiagram} from "react-icons/fa"
 import HeaderNavbar from '../components/HeaderComponent';
 import PostsComponent from '../components/PostsComponent';
 import 'tailwindcss/tailwind.css'
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const { Link } = Anchor;
 
 const {Title, Text} = Typography
 
 export default function Home() {
+
+
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+      partialVisibilityGutter: 40 // this is needed to tell the amount of px that should be visible.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      partialVisibilityGutter: 30 // this is needed to tell the amount of px that should be visible.
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 2,
+      partialVisibilityGutter: 30 // this is needed to tell the amount of px that should be visible.
+    }
+  }
+
   return (
     <div className="container">
       <Head>
@@ -99,6 +120,45 @@ export default function Home() {
           </Col>
         </Row>
 
+        <div className="mobile-post-types">
+          <Carousel responsive={responsive}>
+
+              <div>
+                <Space direction="horizontal">
+                  <Space direction="post-types">
+                      <ImEarth fontSize={16} color={"#535353"} />
+                      <Title level={4}>Global</Title>
+                      <Title level={4}>150</Title>
+                  </Space>
+                </Space>
+              </div>
+              <div>
+                <Space direction="horizontal">
+                  <Space direction="post-types">
+                      <ImEarth fontSize={16} color={"#535353"} />
+                      <Title level={4}>Global</Title>
+                      <Title level={4}>150</Title>
+                  </Space>
+                </Space>
+              </div>
+
+              <Space direction="horizontal">
+                <Space direction="post-types">
+                    <ImEarth fontSize={16} color={"#535353"} />
+                    <Title level={4}>Global</Title>
+                    <Title level={4}>150</Title>
+                </Space>
+              </Space>
+
+              {/* <Space className="post-types">
+                <Space direction="horizontal"> 
+                    <Col><ImEarth fontSize={16} color={"#535353"} /></Col>
+                    <Col><Title level={4}>Global</Title></Col>
+                    <Col><Title level={4}>150</Title></Col>
+                  </Space>              
+                </Space> */}
+          </Carousel>
+        </div>
 
         <PageHeader 
           className="navbar-content navbar-2"
@@ -106,7 +166,6 @@ export default function Home() {
           title={null}
           backIcon={null}
          >
-
            <Space size="small" direction="horizontal">
               <div className="post-types-container">
                 <Space className="post-types">
