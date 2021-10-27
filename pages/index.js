@@ -14,6 +14,7 @@ import {DiPhp} from "react-icons/di"
 import {FaProjectDiagram} from "react-icons/fa"
 import HeaderNavbar from '../components/HeaderComponent';
 import PostsComponent from '../components/PostsComponent';
+import 'tailwindcss/tailwind.css'
 
 const { Link } = Anchor;
 
@@ -180,9 +181,12 @@ export default function Home() {
 
           </PageHeader>
 
-         <PostsComponent />
-         <PostsComponent />
-         <PostsComponent />
+         <div className="bg-transparent">
+          <PostsComponent />
+          <PostsComponent />
+          <PostsComponent />
+          <br /><br /><br />
+         </div>
 
       </main>
     </div>

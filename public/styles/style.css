@@ -345,6 +345,63 @@ span.ant-typography.content {
   min-height: 54vh;
 }
 
-.post-description{
+.menu-icon{
+  display: none;
+}
 
+/* Small screen devices (600px and above) */
+@media only screen and (max-width: 595px){
+
+  .ant-space.ant-space-horizontal.ant-space-align-center{
+    display: block;
+  }
+  .menu-icon{
+    display: block;
+    margin-right: -7px !important;
+  }
+
+  .post-container-1{
+    width: 83vw;
+  }
+
+  .demostrate-actions{ display: none;}
+  .bg-transparent.posts-container {
+    padding: 0 2em;
+  }
+  .ant-page-header.navbar-content.navbar-2.ant-page-header-compact {
+    display: none;
+  }
+
+  img.ant-image-img.cover-bg {
+    width: 100% !important;
+    height: 35vh !important;
+  }
+  span.ant-typography.post-description {
+    display: none;
+  }
+
+  .post-container-1.post-container-2 {
+    width: 83vw;
+    margin-top: 3em;
+  }
+
+  .profile-details {
+    display: inline-flex !important;
+  }
+  .ant-space.ant-space-horizontal.ant-space-align-center.post-languages {
+    display: inline-flex;
+  }
+  .ant-space.ant-space-horizontal.ant-space-align-center.post-container-1.margin_left_10.margin_right_10 {
+    margin: 3em 0;
+  }
+  .margin_top_10 {
+    margin-top: 0px;
+  }
+
+  .ant-page-header.navbar-content.ant-page-header-compact {
+    padding: 1em 34px;
+  }
+  span.ant-page-header-heading-extra button {
+    display: none;
+  }
 }
