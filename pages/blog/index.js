@@ -11,8 +11,9 @@ import path from 'path'
 import matter from 'gray-matter'
 import marked from 'marked'
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
-import { useState } from 'react';
-
+import { useCallback, useState } from 'react';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const {Title, Text} = Typography
 
@@ -24,6 +25,31 @@ const Home = ({
     const handlefullscreen = useFullScreenHandle()
 
     const [pptvisibility,setpptvisibility] = useState(false)
+
+    const handlepptchange = useCallback((state, handle) => {
+        if(state) setpptvisibility(true)
+        else setpptvisibility(false)
+    })
+
+    const responsive = {
+        superLargeDesktop: {
+          // the naming can be any, depends on you.
+          breakpoint: { max: 4000, min: 3000 },
+          items: 1
+        },
+        desktop: {
+          breakpoint: { max: 3000, min: 1024 },
+          items: 1
+        },
+        tablet: {
+          breakpoint: { max: 1024, min: 464 },
+          items: 1
+        },
+        mobile: {
+          breakpoint: { max: 464, min: 0 },
+          items: 1
+        }
+      };
 
     
     return (
@@ -40,16 +66,19 @@ const Home = ({
                 <HeaderComponent />
 
                 {/* PRESENTATION CONTENT */}
-                {
-                    pptvisibility ?
-                    <FullScreen handle={handlefullscreen} className="ppt-container" >
-                        <div>
-                            <Image src={'https://images.pexels.com/photos/705164/computer-laptop-work-place-camera-705164.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'} className="post-cover-bg" alt='' />
-                            <Title level={1} className="post-title">Tips to master while studying typing master and their importance</Title>
-                        </div>
-                    </FullScreen> : 
-                    ''
-                }
+                <FullScreen onChange={handlepptchange} handle={handlefullscreen} >
+                    {
+                        pptvisibility ? 
+                        <Carousel responsive={responsive}>
+                            <div className="ppt-container">
+                                <div>
+                                    <Title level={1} className="post-title">Tips to master while studying typing master and their importance</Title>
+                                </div>
+                            </div>
+                        </Carousel>
+                         : ''
+                    }
+                </FullScreen>
 
                 {/* action container */}
 

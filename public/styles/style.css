@@ -382,6 +382,26 @@ span.ant-typography.content {
   margin-bottom: -37px;
 }
 
+  .ppt-container{
+    padding: 7em;
+    height: 100vh;
+    width: 100vw;
+    background-image:  linear-gradient(to bottom, rgb(0 0 0 / 63%), rgba(0, 0, 0, 0.486)),url('https://images.pexels.com/photos/705164/computer-laptop-work-place-camera-705164.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .ppt-container h1.ant-typography.post-title {
+    position: relative;
+    top: 57vh;
+    color: #FFFFFF;
+    line-height: 65px;
+  }
+
+  img.ant-image-img.post-cover-bg-ppt {
+    width: 84vw;
+    height: 75vh;
+  }
 
 
 
