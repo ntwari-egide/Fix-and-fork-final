@@ -69,12 +69,71 @@ const Home = ({
                 <FullScreen onChange={handlepptchange} handle={handlefullscreen} >
                     {
                         pptvisibility ? 
-                        <Carousel responsive={responsive}>
+                        <Carousel responsive={responsive} keyBoardControl={true}>
                             <div className="ppt-container">
                                 <div>
                                     <Title level={1} className="post-title">Tips to master while studying typing master and their importance</Title>
                                 </div>
                             </div>
+                            <div className="ppt-container-2">
+                                <div>
+                                    <Title level={1}>Getting Started</Title>
+                                    <p>Lot is project with giving clients the right solution. we are working with public and private companies in employee's management</p>
+                                    <Title level={2}>Prerequisites</Title>
+                                    <p>This is an example of how to list things you need to use the software and how to install them.</p>
+                                    <ul>
+                                        <li>Clone project from gitlab</li>
+                                        <li>Switching to your folder</li>
+                                        <li>npm npm install or yarn install</li>
+                                    </ul>
+                                    <p>Most, if not all, careers involve some computer-based work and require strong typing skills. Information technology professionals, for example, must be efficient typists in order to write code for computer and software programs. Accuracy is equally as important as speed, as a simple typo could result in a system-wide error</p>
+                                </div>
+
+                                {/* speed to text translator */}
+
+                                <Space className="speech-to-text-translator">
+                                    <Space direction="horizontal" className="speed-container">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32.998" height="28.5" viewBox="0 0 32.998 28.5">
+                                            <g id="Icon_material-record-voice-over" data-name="Icon material-record-voice-over" transform="translate(-1.5 -3)">
+                                                <path id="Path_41" data-name="Path 41" d="M19.5,13.5a6,6,0,1,1-6-6A6,6,0,0,1,19.5,13.5Z" fill="#0420bf"/>
+                                                <path id="Path_42" data-name="Path 42" d="M13.5,22.5c-4.005,0-12,2.01-12,6v3h24v-3C25.5,24.51,17.505,22.5,13.5,22.5ZM25.14,8.04l-2.52,2.535a4.976,4.976,0,0,1,0,5.835l2.52,2.535A7.676,7.676,0,0,0,25.14,8.04ZM30.1,3,27.66,5.445a11.968,11.968,0,0,1,0,16.11L30.1,24A14.744,14.744,0,0,0,30.1,3Z" fill="#0420bf"/>
+                                            </g>
+                                        </svg>
+                                    </Space>
+
+                                    <Space className="text-content">
+                                        <p>….. Most, if not all, <strong>careers involve some computer-based work and require strong</strong> typing skills. Information .....</p> 
+                                    </Space>
+                                </Space>
+
+                            </div>
+
+                            <div className="ppt-container-2">
+                                <div>
+                                    <Title level={1}>Contributing   </Title>
+                                    
+                                    <p>Most, if not all, careers involve some computer-based work and require strong typing skills. Information technology professionals, for example, must be efficient typists in order to write code for computer and software programs. Accuracy is equally as important as speed, as a simple typo could result in a system-wide error</p>
+                                </div>
+
+                                {/* speed to text translator */}
+
+                                <Space className="speech-to-text-translator">
+                                    <Space direction="horizontal" className="speed-container">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32.998" height="28.5" viewBox="0 0 32.998 28.5">
+                                            <g id="Icon_material-record-voice-over" data-name="Icon material-record-voice-over" transform="translate(-1.5 -3)">
+                                                <path id="Path_41" data-name="Path 41" d="M19.5,13.5a6,6,0,1,1-6-6A6,6,0,0,1,19.5,13.5Z" fill="#0420bf"/>
+                                                <path id="Path_42" data-name="Path 42" d="M13.5,22.5c-4.005,0-12,2.01-12,6v3h24v-3C25.5,24.51,17.505,22.5,13.5,22.5ZM25.14,8.04l-2.52,2.535a4.976,4.976,0,0,1,0,5.835l2.52,2.535A7.676,7.676,0,0,0,25.14,8.04ZM30.1,3,27.66,5.445a11.968,11.968,0,0,1,0,16.11L30.1,24A14.744,14.744,0,0,0,30.1,3Z" fill="#0420bf"/>
+                                            </g>
+                                        </svg>
+                                    </Space>
+
+                                    <Space className="text-content">
+                                        <p>….. Most, if not all, <strong>careers involve some computer-based work and require strong</strong> typing skills. Information .....</p> 
+                                    </Space>
+                                </Space>
+
+                            </div>
+                            
                         </Carousel>
                          : ''
                     }

@@ -386,9 +386,40 @@ span.ant-typography.content {
     padding: 7em;
     height: 100vh;
     width: 100vw;
-    background-image:  linear-gradient(to bottom, rgb(0 0 0 / 63%), rgba(0, 0, 0, 0.486)),url('https://images.pexels.com/photos/705164/computer-laptop-work-place-camera-705164.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-image:  linear-gradient(to bottom, rgba(0, 0, 0, 0.486), rgba(0, 0, 0, 0.486)),url('https://images.pexels.com/photos/705164/computer-laptop-work-place-camera-705164.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
     background-size: cover;
     background-position: center;
+  }
+
+  .ppt-container-2{
+    padding: 7em;
+    height: 100vh;
+    width: 100vw;
+    background-image:  linear-gradient(to bottom, rgba(0, 0, 0, 0.952), rgba(0, 0, 0, 0.952)),url('https://images.pexels.com/photos/705164/computer-laptop-work-place-camera-705164.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') !important;
+    background-size: cover;
+    background-position: center;
+    color: #e5e5e5d7;
+  }
+
+  .ppt-container-2 h1.ant-typography {
+    text-align: center;
+    color: #e5e5e5c7;
+  }
+
+  .ppt-container-2 p {
+    font-size: 1.4em;
+    font-weight: 100 !important;
+    text-align: center;
+    margin: 26px 0 !important;
+  }
+
+  .ppt-container-2 h2.ant-typography {
+      color: #b3b3b3;
+      text-align: center;
+  }
+
+  .ppt-container-2 ul{
+    margin-left: 11vw;
   }
 
   .ppt-container h1.ant-typography.post-title {
@@ -397,6 +428,45 @@ span.ant-typography.content {
     color: #FFFFFF;
     line-height: 65px;
   }
+
+  .ant-space.ant-space-horizontal.ant-space-align-center.speed-container {
+    background: #ffffffdc;
+    padding: 18px;
+    border-radius: 50%;
+    border: 2px solid #707070; 
+    height: 8vh;
+    cursor: pointer;
+}
+  .ant-space.ant-space-horizontal.ant-space-align-center.speed-container svg {
+    height: 19px;
+    width: 19px;
+  }
+
+  .ant-space.ant-space-horizontal.ant-space-align-center.text-content {
+    background: #ffffff26;
+    width: 75vw;
+    margin-left: 2vw;
+    height: 6vh;
+    text-align: center !important;
+    margin: 0 100px !important;
+  }
+
+  .ant-space.ant-space-horizontal.ant-space-align-center.speech-to-text-translator {
+    position: absolute;
+    top: 87vh;
+  }
+
+  .ant-space.ant-space-horizontal.ant-space-align-center.text-content p{
+    font-size: 13px !important;
+    text-align: center !important;
+    color: #b1b1b1f2 !important;
+    margin: 0 12em !important;
+  }
+
+  .ant-space.ant-space-horizontal.ant-space-align-center.text-content p strong{
+    color: #fff !important;
+  }
+  
 
   img.ant-image-img.post-cover-bg-ppt {
     width: 84vw;
