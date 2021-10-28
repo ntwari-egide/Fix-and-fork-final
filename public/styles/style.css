@@ -32,6 +32,7 @@ body {
     background: #263dbf1f;
     height: 94vh;
     padding: 2em 7em;
+    width: 100vw;
     }
 
     .ant-page-header.navbar-content {
@@ -40,6 +41,7 @@ body {
     top: 0px;
     background: #fffffff5;
     z-index: 21;
+    width: 100vw;
     }
 
     .welcome-content {
@@ -114,7 +116,7 @@ body {
       }
 
       .bg-transparent{
-        background: #F8F8F8;
+        background: #F8F8F8 !important;
       }
 
       .demostrate-actions img.ant-image-img {
@@ -169,6 +171,7 @@ body {
 
       .bg-transparent.posts-container {
         padding: 2em 7em;
+        width: 100vw;
       }
 
       .post-container-1 {
@@ -193,7 +196,7 @@ body {
       }
       .post-container-1 img.ant-image-img.cover-bg {
         height: 51vh;
-        width: 15em;
+        width: 124vw;
         margin-right: 1em;
         border-radius: 20px;
       }
