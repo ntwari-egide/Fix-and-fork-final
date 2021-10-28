@@ -358,6 +358,30 @@ span.ant-typography.content {
   float: right !important;
 }
 
+.post-actions-container {
+  position: sticky;
+  top: 116px;
+}
+
+.ratings-container {
+  background: white;
+  padding: 9px;
+  border: 1px solid #00000033;
+  border-radius: 50%;
+  height: 3em;
+  width: 3em;
+  text-align: center;
+  position: relative;
+  top: -39px;
+  box-shadow: 0 2px 4px #00000026;
+  font-weight: 700;
+  left: 7px;
+  margin-bottom: -37px;
+}
+
+
+
+
 /* Small screen devices (600px and above) */
 @media only screen and (max-width: 595px){
 
