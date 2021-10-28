@@ -10,6 +10,9 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import marked from 'marked'
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
+import { useState } from 'react';
+
 
 const {Title, Text} = Typography
 
@@ -17,6 +20,10 @@ const Home = ({
     frontmatter,
     content,
   }) => {
+
+    const handlefullscreen = useFullScreenHandle()
+
+    const [pptvisibility,setpptvisibility] = useState(false)
 
     
     return (
@@ -31,6 +38,18 @@ const Home = ({
 
             <main>
                 <HeaderComponent />
+
+                {/* PRESENTATION CONTENT */}
+                {
+                    pptvisibility ?
+                    <FullScreen handle={handlefullscreen} className="ppt-container" >
+                        <div>
+                            <Image src={'https://images.pexels.com/photos/705164/computer-laptop-work-place-camera-705164.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'} className="post-cover-bg" alt='' />
+                            <Title level={1} className="post-title">Tips to master while studying typing master and their importance</Title>
+                        </div>
+                    </FullScreen> : 
+                    ''
+                }
 
                 {/* action container */}
 
@@ -91,11 +110,12 @@ const Home = ({
 
                         {/* MAIN POST CONTAINER */}
                         
+                        
                         <div className='card card-page'>
                             <Image src={'https://images.pexels.com/photos/705164/computer-laptop-work-place-camera-705164.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'} className="post-cover-bg" alt='' />
                             <Title level={1} className="post-title">Tips to master while studying typing master and their importance</Title>
                             <div className='post-body'>
-                                <div dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
+                                 <div dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
                             </div>
                         </div>
 
@@ -123,7 +143,7 @@ const Home = ({
                     
                     <Col span={4}  className="action-container right-actions">
 
-                        <div className="post-actions-container">
+                        <div className="post-actions-container" onClick={handlefullscreen.enter}>
                             <Tooltip placement="left" title={"Present Solution"}>
                                 <div className="action">
                                     <svg id="slideshow-2-line" xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29">
