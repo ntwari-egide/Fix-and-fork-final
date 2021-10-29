@@ -1,5 +1,5 @@
 
-import { Col, Divider, Image, Row, Space, Tooltip, Typography } from 'antd'
+import { Col, Divider, Image, Row, Space, Tooltip, Typography, message } from 'antd'
 import 'antd/dist/antd.css';
 import HeaderComponent from '../../components/HeaderComponent';
 import {GrView, GrGithub} from "react-icons/gr"
@@ -7,13 +7,14 @@ import {BiHeart} from "react-icons/bi"
 import {MdOutlineEdit} from "react-icons/md"
 import ReactMarkdown from 'react-markdown'
 import fs from 'fs'
-import path from 'path'
 import matter from 'gray-matter'
 import marked from 'marked'
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useRef } from 'react';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
+
 
 const {Title, Text} = Typography
 
@@ -26,10 +27,48 @@ const Home = ({
 
     const [pptvisibility,setpptvisibility] = useState(false)
 
+    const [translatorenabled,settranslatorenabled] = useState(false)
+
+    const { transcript, resetTranscript } = useSpeechRecognition();
+    const [isListening, setIsListening] = useState(false);
+
+    const microphoneRef = useRef(null);
+
+    const handleListing = () => {
+        setIsListening(true);
+        SpeechRecognition.startListening({
+          continuous: true,
+        });
+      };
+      const stopHandle = () => {
+        setIsListening(false);
+        SpeechRecognition.stopListening();
+      };
+      const handleReset = () => {
+        stopHandle();
+        resetTranscript();
+      };
+
+    console.log("Handle sound found: ",transcript);
+
+
     const handlepptchange = useCallback((state, handle) => {
         if(state) setpptvisibility(true)
         else setpptvisibility(false)
     })
+
+    const toggletranslator = () => {
+        if(translatorenabled) {
+            settranslatorenabled(false)
+            message.success("Speech to text translator is disabled!")
+            stopHandle()
+        }
+        else{
+            message.success("Speech to text translator is switched on!")
+            settranslatorenabled(true)
+            handleListing()
+        }
+    }
 
     const responsive = {
         superLargeDesktop: {
@@ -92,13 +131,23 @@ const Home = ({
                                 {/* speed to text translator */}
 
                                 <Space className="speech-to-text-translator">
-                                    <Space direction="horizontal" className="speed-container">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="32.998" height="28.5" viewBox="0 0 32.998 28.5">
+                                    <Space direction="horizontal" className="speed-container" onClick={toggletranslator}>
+                                        { 
+                                            translatorenabled ? 
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="32.998" height="28.5" viewBox="0 0 32.998 28.5">
+                                                <g id="Icon_material-record-voice-over" data-name="Icon material-record-voice-over" transform="translate(-1.5 -3)">
+                                                    <path id="Path_41" data-name="Path 41" d="M19.5,13.5a6,6,0,1,1-6-6A6,6,0,0,1,19.5,13.5Z" fill="#0420bf"/>
+                                                    <path id="Path_42" data-name="Path 42" d="M13.5,22.5c-4.005,0-12,2.01-12,6v3h24v-3C25.5,24.51,17.505,22.5,13.5,22.5ZM25.14,8.04l-2.52,2.535a4.976,4.976,0,0,1,0,5.835l2.52,2.535A7.676,7.676,0,0,0,25.14,8.04ZM30.1,3,27.66,5.445a11.968,11.968,0,0,1,0,16.11L30.1,24A14.744,14.744,0,0,0,30.1,3Z" fill="#0420bf"/>
+                                                </g>
+                                            </svg> :
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="32.998" height="28.5" viewBox="0 0 32.998 28.5">
                                             <g id="Icon_material-record-voice-over" data-name="Icon material-record-voice-over" transform="translate(-1.5 -3)">
-                                                <path id="Path_41" data-name="Path 41" d="M19.5,13.5a6,6,0,1,1-6-6A6,6,0,0,1,19.5,13.5Z" fill="#0420bf"/>
-                                                <path id="Path_42" data-name="Path 42" d="M13.5,22.5c-4.005,0-12,2.01-12,6v3h24v-3C25.5,24.51,17.505,22.5,13.5,22.5ZM25.14,8.04l-2.52,2.535a4.976,4.976,0,0,1,0,5.835l2.52,2.535A7.676,7.676,0,0,0,25.14,8.04ZM30.1,3,27.66,5.445a11.968,11.968,0,0,1,0,16.11L30.1,24A14.744,14.744,0,0,0,30.1,3Z" fill="#0420bf"/>
+                                                <path id="Path_41" data-name="Path 41" d="M19.5,13.5a6,6,0,1,1-6-6A6,6,0,0,1,19.5,13.5Z" fill="black"/>
+                                                <path id="Path_42" data-name="Path 42" d="M13.5,22.5c-4.005,0-12,2.01-12,6v3h24v-3C25.5,24.51,17.505,22.5,13.5,22.5ZM25.14,8.04l-2.52,2.535a4.976,4.976,0,0,1,0,5.835l2.52,2.535A7.676,7.676,0,0,0,25.14,8.04ZM30.1,3,27.66,5.445a11.968,11.968,0,0,1,0,16.11L30.1,24A14.744,14.744,0,0,0,30.1,3Z" fill="black"/>
                                             </g>
-                                        </svg>
+                                            </svg>
+                                        }
                                     </Space>
 
                                     <Space className="text-content">
