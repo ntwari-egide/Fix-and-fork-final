@@ -48,6 +48,7 @@ export default function Home() {
         <title>Fix and fork - Home </title>
         <link rel="icon" href="/favicon.ico" />
         <link href="/styles/style.css" rel="stylesheet" />`
+        <link href="../assets/fonts/stylesheet.css" rel="stylesheet" />`
         <link href="/styles/project-theme.css" rel="stylesheet" />`
       </Head>
 
