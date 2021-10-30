@@ -646,3 +646,7 @@ span.ant-typography.content {
     height: 8vh;
   }
 }
+
+.footer-div {
+  background-color: white;
+}

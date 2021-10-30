@@ -1,4 +1,5 @@
 import { Button, Col, Image, PageHeader, Row, Space, Typography } from 'antd'
+import Footer from '../components/FooterComponent'
 import Head from 'next/head'
 import 'antd/dist/antd.css';
 import {RiUserFollowLine} from "react-icons/ri"
@@ -329,7 +330,7 @@ export default function Home() {
           <PostsComponent />
           <br /><br /><br />
          </div>
-
+         <Footer/>
       </main>
     </div>
   )
