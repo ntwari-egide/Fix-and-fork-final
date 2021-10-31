@@ -242,8 +242,9 @@ const Home = ({
                             </Tooltip>
                         </div>
                     </Col>
-                    <Col span={16} className="main-post-content">
 
+
+                    <Col span={16} className="main-post-content">
 
                         {/* MAIN POST CONTAINER */}
                         
@@ -309,7 +310,7 @@ const Home = ({
 
 
 export async function getStaticProps() {
-    const markdownWithMeta = fs.readFileSync('C:/Users/ntwari/Documents/ntwari egide docs/Fixand fork/fixandfork/pages/blog/content/test.md', 'utf-8'
+    const markdownWithMeta = fs.readFileSync('/home/gershom/Documents/Doings/Fix-and-fork-final/pages/blog/content/test.md', 'utf-8'
     )
   
     const { data: frontmatter, content } = matter(markdownWithMeta)
