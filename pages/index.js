@@ -326,8 +326,8 @@ export default function Home() {
 
          <div className="bg-transparent">
           <PostsComponent />
-          <PostsComponent />
-          <PostsComponent />
+          {/* <PostsComponent />
+          <PostsComponent /> */}
           <br /><br /><br />
          </div>
 

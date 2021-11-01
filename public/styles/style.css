@@ -191,6 +191,7 @@ body {
         font-size: 15px;
         margin-top: 0;
         color: #464444;
+        margin-left: 1em;
       }
 
       .post-container-1 span.ant-typography {
@@ -198,18 +199,25 @@ body {
         line-height: 23px;
         color: #535353;
       }
-      .post-container-1 img.ant-image-img.cover-bg {
-        height: 51vh;
-        width: 124vw;
-        margin-right: 1em;
-        border-radius: 20px;
+
+      .post-contents {
+        height: 30vh;
+        display: block;
+        margin-left: 1em;
       }
 
-      img.ant-image-img.post-profile-pic {
+      .post-container-1.post-container-2 img.ant-image-img.post-profile-pic,
+      .post-container-1.post-container-2 h2
+       {
+        margin-left: 0em !important;
+      }
+
+      .post-container-1 img.ant-image-img.post-profile-pic {
         height: 3em;
         border-radius: 50%;
         width: 3em;
         margin-top: 0.7em;
+        margin-left: 1em;
       }
 
       h3.ant-typography.profile-name {
@@ -232,6 +240,14 @@ body {
         border-radius: 20px;
         height: 35vh;
       }
+
+      .post-container-1 img.ant-image-img.cover-bg {
+        height: 51vh;
+        width: 45vw;
+        margin-right: 1em;
+        border-radius: 20px;
+        object-fit: cover;
+    }
 
       .margin_top_10{
         margin-top: 30px;
@@ -657,5 +673,15 @@ span.ant-typography.content {
     width: 43vw;
     font-size: 10px;
     height: 8vh;
+  }
+
+  .post-contents {
+    display: none;
+  }
+
+  .post-container-1 img.ant-image-img.post-profile-pic,
+  .post-container-1 h2
+  {
+        margin-left: 0em !important;
   }
 }

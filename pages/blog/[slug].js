@@ -20,6 +20,7 @@ const {Title, Text} = Typography
 
 const Home = ({
     frontmatter,
+    slug,
     content,
   }) => {
 
@@ -308,8 +309,8 @@ const Home = ({
 
 
 
-export async function getStaticProps() {
-    const markdownWithMeta = fs.readFileSync(path.join('content', "preact is designed for hight school" + '.md'),
+export async function getStaticProps({ params }) {
+    const markdownWithMeta = fs.readFileSync(path.join('content', params.slug + '.md'),
     'utf-8')
         
     const { data: frontmatter, content } = matter(markdownWithMeta)
@@ -317,6 +318,7 @@ export async function getStaticProps() {
     return {
       props: {
         frontmatter,
+        slug,
         content
       },
     }
