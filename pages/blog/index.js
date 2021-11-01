@@ -14,7 +14,7 @@ import { useCallback, useState, useRef } from 'react';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
-
+import path from 'path'
 
 const {Title, Text} = Typography
 
@@ -309,9 +309,9 @@ const Home = ({
 
 
 export async function getStaticProps() {
-    const markdownWithMeta = fs.readFileSync('C:/Users/ntwari/Documents/ntwari egide docs/Fixand fork/fixandfork/pages/blog/content/test.md', 'utf-8'
-    )
-  
+    const markdownWithMeta = fs.readFileSync(path.join('content', "preact is designed for hight school" + '.md'),
+    'utf-8')
+        
     const { data: frontmatter, content } = matter(markdownWithMeta)
   
     return {

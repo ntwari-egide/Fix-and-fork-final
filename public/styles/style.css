@@ -279,6 +279,15 @@ body {
   width: 100%;
 }
 
+.main-post-content img {
+  width: 100%;
+  margin: 2em 0;
+}
+
+.ant-col.ant-col-16.main-post-content {
+  font-size: 18px;
+}
+
 h1.ant-typography.post-title {
   text-align: center;
   margin: 1em 0 !important;
