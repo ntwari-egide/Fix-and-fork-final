@@ -5,9 +5,10 @@ excerpt: 'Both Tailwind and Bootstrap are very popular CSS frameworks. In this a
 cover_image: '/images/posts/img2.jpg'
 ---
 
-Preact - Performance Optimization by default
-
-A few months ago, I wrote an  [article based on optimizing react loading time](https://dev.to/nilanth/how-to-reduce-react-app-loading-time-by-70-1kmm), and most of the reader's comments were to try  [Preact](https://preactjs.com/)  to get default optimization. So I decided to try preact with the same app used for the previous article. Let's first get an intro about Preact.
+<div>
+## Preact - Performance Optimization by default
+ A few months ago, I wrote an  [article based on optimizing react loading time](https://dev.to/nilanth/how-to-reduce-react-app-loading-time-by-70-1kmm), and most of the reader's comments were to try  [Preact](https://preactjs.com/)  to get default optimization. So I decided to try preact with the same app used for the previous article. Let's first get an intro about Preact.
+</div>
 
 Preact is a React alternative library with all the react features!.. Preact is a  **3KB**  library. It is very small compared to react, as react and react-dom gzip size is around  **41KB**  excluding react-scripts based on  [bundlephobia](https://bundlephobia.com/). Some highlighted features of preact are
 
@@ -27,7 +28,7 @@ ReactJS
 
 [![Preact](https://res.cloudinary.com/practicaldev/image/fetch/s--Wxpqu9ow--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/kymf0t9tu6kca3rs74h3.png)](https://res.cloudinary.com/practicaldev/image/fetch/s--Wxpqu9ow--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/kymf0t9tu6kca3rs74h3.png)
 
-PREACT
+## PREACT
 
 For react app I used  [Create React App](https://create-react-app.dev/)  and for Preact used  [preact-cli](https://github.com/preactjs/preact-cli). Preact also gives an option to convert your existing react app to preact using  [preact-compat](https://github.com/preactjs/preact-compat), but I have built an app from scratch to see the best result.
 

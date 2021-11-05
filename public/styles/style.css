@@ -311,6 +311,11 @@ h1.ant-typography.post-title {
   margin-bottom: 2em!important;
 }
 
+.ant-image-mask {
+  height: 85%;
+  margin-top: 2em;
+}
+
 img.ant-image-img.post-cover-bg {
   height: 60vh;
   width: 57vw;

@@ -2,11 +2,13 @@ import { Col, Image, Row, Space, Typography } from 'antd'
 import {ImEarth} from "react-icons/im"
 import {FaReact} from "react-icons/fa"
 import Link from 'next/link'
-import axios from 'axios'
+import { useRouter } from 'next/router'
 
 const {Title, Text} = Typography
 
 export default function PostsComponent({ posts }) {
+
+  const router = useRouter()
 
     return <div className="bg-transparent posts-container">
       {
@@ -27,7 +29,7 @@ export default function PostsComponent({ posts }) {
               
               }
 
-              return <Space gutter={32} style={{marginBottom: '20px !important'}}>
+              return <Space gutter={32} style={{marginBottom: '40px !important'}}>
 
                 {
                   currentPosts.map( 
@@ -37,8 +39,8 @@ export default function PostsComponent({ posts }) {
                     || posts.indexOf(post) + 1  ===  13 || posts.indexOf(post) + 1  ===  18 
                     || posts.indexOf(post) + 1  ===  20 || posts.indexOf(post) + 1  ===  25 ? 
       
-                    <Link href={`/blog/${post.contentMdFileUrl}`}>
-                      <Col span={11}>
+                    
+                      <Col span={11} onClick={() => router.push(`/blog/${post.contentMdFileUrl}`)}>
                         <Space direction="horizontal" className="post-container-1">
                             <Image preview={false} className="cover-bg" src={post.coverImageUrl} />
                             <Space direction="vertical"> 
@@ -67,11 +69,9 @@ export default function PostsComponent({ posts }) {
                               </Row>
                             </Space>
                         </Space>
-                      </Col>
-                    </Link> :
+                      </Col>:
                     
-                    <Link href={`/blog/${post.contentMdFileUrl}`}>
-                      <Col span={6}>
+                      <Col span={6}  onClick={() => router.push(`/blog/${post.contentMdFileUrl}`)}>
                         <Space direction="vertical" className="post-container-1  post-container-2 margin_left_10">
                             <Image preview={false} className="cover-bg-2" src={post.coverImageUrl} />
                             <Space direction="vertical">
@@ -97,8 +97,7 @@ export default function PostsComponent({ posts }) {
                               </Row>
                             </Space>
                         </Space>
-                      </Col>
-                    </Link>   
+                      </Col> 
                     )   
                 }
 

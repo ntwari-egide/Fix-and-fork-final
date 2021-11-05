@@ -15,7 +15,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import path from 'path'
-import { useRouter } from 'next/dist/client/router';
+import axios from "axios"
 
 const {Title, Text} = Typography
 
@@ -23,9 +23,8 @@ const Home = ({
     frontmatter: { title, date, cover_image },
     slug,
     content,
+    postData
   }) => {
-
-    console.log("Handle sound found: ",title);
 
     const handlefullscreen = useFullScreenHandle()
 
@@ -69,9 +68,6 @@ const Home = ({
         }
     }
 
-    useEffect(() => {
-        console.log("data");
-    },[])
 
     const responsive = {
         superLargeDesktop: {
@@ -91,14 +87,14 @@ const Home = ({
           breakpoint: { max: 464, min: 0 },
           items: 1
         }
-      };
+    };
 
     
     return (
         <div className="container">
             
             <head>
-                <title>Fix and fork - BLOG content </title>
+                <title>Fix and fork - {postData[0].postTitle} </title>
                 <link rel="icon" href="/favicon.ico" />
                 <link href="/styles/style.css" rel="stylesheet" />`
                 <link href="/styles/project-theme.css" rel="stylesheet" />`
@@ -114,10 +110,10 @@ const Home = ({
                         <Carousel responsive={responsive} keyBoardControl={true}>
                             <div className="ppt-container">
                                 <div>
-                                    <Title level={1} className="post-title">Tips to master while studying typing master and their importance</Title>
+                                    <Title level={1} className="post-title">{postData[0].postTitle}</Title>
                                 </div>
                             </div>
-                            <div className="ppt-container-2">
+                            <div className="ppt-container-2" >
                                 <div>
                                     <Title level={1}>Getting Started</Title>
                                     <p>Lot is project with giving clients the right solution. we are working with public and private companies in employee's management</p>
@@ -210,7 +206,7 @@ const Home = ({
                             <Tooltip placement="right" title={"Total views"}>    
                                 <div className="action">
                                     <div className="ratings-container">
-                                        29
+                                        {postData[0].totalViews}
                                     </div>
                                     <GrView color="#3A3E3E" />
                                 </div>
@@ -219,7 +215,7 @@ const Home = ({
                             <Tooltip placement="right" title={"Like solution"}>
                                 <div className="action">
                                     <div className="ratings-container">
-                                        45
+                                        {postData[0].totalLikes}
                                     </div>
                                     <BiHeart color="#3A3E3E" />
                                 </div>
@@ -252,8 +248,8 @@ const Home = ({
                         
                         
                         <div className='card card-page'>
-                            <Image src={'https://images.pexels.com/photos/705164/computer-laptop-work-place-camera-705164.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'} className="post-cover-bg" alt='' />
-                            <Title level={1} className="post-title">Tips to master while studying typing master and their importance</Title>
+                            <Image src={postData[0].coverImageUrl} className="post-cover-bg" alt='' />
+                            <Title level={1} className="post-title">{postData[0].postTitle}</Title>
                             <div className='post-body'>
                                  <div dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
                             </div>
@@ -329,11 +325,17 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params : {slug} }) {
 
+    let postData = ""
+
+    const data = await axios.get(`https://fixandfork.herokuapp.com/api/v1/posts/contentmdfileurl/${slug}`)
+
+    postData = data.data
+
     const markdownWithMeta = fs.readFileSync(
       path.join('content', slug + '.md'),
       'utf-8'
     )
-  
+
     const { data: frontmatter, content } = matter(markdownWithMeta)
   
     return {
@@ -341,6 +343,7 @@ export async function getStaticProps({ params : {slug} }) {
         frontmatter,
         slug,
         content,
+        postData
       },
     }
   }

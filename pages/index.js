@@ -18,6 +18,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import axios from 'axios'
 
+
 const { Link } = Anchor;
 
 const {Title, Text} = Typography

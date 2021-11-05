@@ -1,9 +1,9 @@
 
-_Disclosure: This post includes affiliate links; I may receive compensation if you purchase products or services from the different links provided in this article._
+<div>_Disclosure: This post includes affiliate links; I may receive compensation if you purchase products or services from the different links provided in this article._
 
 Hello guys, If you are a Java developer and always wanted to learn more about Microservices, Spring Boot and Spring Cloud frameworks, then you have come to the right place. In the past, I have shared some of the best  [Spring Boot](https://javarevisited.blogspot.com/2018/05/top-5-courses-to-learn-spring-boot-in.html),  [Microservices](https://medium.com/javarevisited/top-5-courses-to-learn-microservices-in-java-and-spring-framework-e9fed1ba804d)  and  [Spring Cloud](http://javarevisited.blogspot.sg/2018/04/top-5-spring-cloud-courses-for-java.html#axzz5DbV6r2Ll)  online training courses, and today, I am going to share few awesome books to learn Spring Boot, Microservices, and Spring Cloud.
 
-But, before that, let's try to understand  _what are microservices?_  and  _how Spring Boot and Spring Cloud help with the development of microservices in Java?_.
+But, before that, let's try to understand  _what are microservices?_  and  _how Spring Boot and Spring Cloud help with the development of microservices in Java?_.</div>
 
 Microservices are nothing but an extension of RESTful web services with the main objective being to  **break up your code into small, distributed, and independent services**  for better development, deployment, and management.
 
