@@ -306,13 +306,13 @@ body {
 
 h1.ant-typography.post-title {
   text-align: center;
-  margin: 1em 0 !important;
-  color: #081459;
+  color: rgb(8, 20, 89);
   line-height: 48px;
+  margin-bottom: 2em!important;
 }
 
 img.ant-image-img.post-cover-bg {
-  height: 67vh;
+  height: 60vh;
   width: 57vw;
 }
 

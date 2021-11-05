@@ -10,19 +10,22 @@ import fs from 'fs'
 import matter from 'gray-matter'
 import marked from 'marked'
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
-import { useCallback, useState, useRef } from 'react';
+import { useCallback, useState, useRef, useEffect } from 'react';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import path from 'path'
+import { useRouter } from 'next/dist/client/router';
 
 const {Title, Text} = Typography
 
 const Home = ({
-    frontmatter,
+    frontmatter: { title, date, cover_image },
     slug,
     content,
   }) => {
+
+    console.log("Handle sound found: ",title);
 
     const handlefullscreen = useFullScreenHandle()
 
@@ -32,8 +35,6 @@ const Home = ({
 
     const { transcript, resetTranscript } = useSpeechRecognition();
     const [isListening, setIsListening] = useState(false);
-
-    const microphoneRef = useRef(null);
 
     const handleListing = () => {
         setIsListening(true);
@@ -49,9 +50,6 @@ const Home = ({
         stopHandle();
         resetTranscript();
       };
-
-    console.log("Handle sound found: ",transcript);
-
 
     const handlepptchange = useCallback((state, handle) => {
         if(state) setpptvisibility(true)
@@ -70,6 +68,10 @@ const Home = ({
             handleListing()
         }
     }
+
+    useEffect(() => {
+        console.log("data");
+    },[])
 
     const responsive = {
         superLargeDesktop: {
@@ -308,18 +310,37 @@ const Home = ({
 }
 
 
+export async function getStaticPaths() {
+    const files = fs.readdirSync(path.join('content'))
+  
+    const paths = files.map((filename) => ({
+      params: {
+        slug: filename.replace('.md', ''),
+      },
+    }))
+  
+    return {
+      paths,
+      fallback: false,
+    }
+  }
 
-export async function getStaticProps({ params }) {
-    const markdownWithMeta = fs.readFileSync(path.join('content', params.slug + '.md'),
-    'utf-8')
-        
+
+
+export async function getStaticProps({ params : {slug} }) {
+
+    const markdownWithMeta = fs.readFileSync(
+      path.join('content', slug + '.md'),
+      'utf-8'
+    )
+  
     const { data: frontmatter, content } = matter(markdownWithMeta)
   
     return {
       props: {
         frontmatter,
         slug,
-        content
+        content,
       },
     }
   }
