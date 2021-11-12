@@ -316,6 +316,14 @@ h1.ant-typography.post-title {
   margin-top: 2em;
 }
 
+.bg-yellow{
+  background-color: #fff4be !important;
+}
+
+.no-cursor{
+  cursor:default !important;
+}
+
 img.ant-image-img.post-cover-bg {
   height: 60vh;
   width: 57vw;
@@ -352,6 +360,7 @@ h5.ant-typography.time {
 
 span.ant-typography.content {
   color: #464444;
+  font-size: 16px;
 }
 
 .comment-section img.ant-image-img.post-profile-pic {
@@ -361,7 +370,7 @@ span.ant-typography.content {
   margin-top: 0.7em;
   margin-right: 1em;
   position: relative;
-  top: -3em;
+  top: -2em;
   border: 1.2px solid #0420BF;
 }
 
@@ -514,7 +523,7 @@ span.ant-typography.content {
     margin-top: 0.7em;
     margin-right: 1em;
     position: relative;
-    top: -5em;
+    top: -3em;
     border: 1.2px solid #0420BF;
 }
 

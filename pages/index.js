@@ -353,7 +353,7 @@ export async function getStaticProps() {
     coverImageUrl: "https://res.cloudinary.com/practicaldev/image/fetch/s--iXdS49-U--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/mm5uqgq9eej1l4x8wchd.png",
     postTitle: "Don't Optimize Your React App, Use Preact Instead",
     postDescription: "Preact is designed for high school sophomores, the PreACT is a multiple choice exam that familiarizes students with the ACT",
-    contentMdFileUrl: "string",
+    contentMdFileUrl: "preact-is-designed-for-high-school",
     githubLinkUrl: null,
     totalForks: 0,
     totalLikes: 0,
@@ -438,7 +438,45 @@ export async function getStaticProps() {
           createdAt: "2021-11-01T13:39:48.221Z",
           updatedAt: "2021-11-01T13:39:48.221Z",
           __v: 0
-          }
+          },
+          {
+            _id: "618011a7f17cf9fdd129b4a5",
+            postTypes: [
+            "617fb0d46733b8d38cd92ab0",
+            "617fb13c6733b8d38cd92ab4"
+            ],
+            coverImageUrl: "https://images.pexels.com/photos/34627/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+            postTitle: "5 Awesome Boodfadfks to Learn Spring Boot, Microservices, and Spring Cloud for Java developers",
+            postDescription: "Unfortunately, there are not many good books available on these frameworks, so we don't have many choices. At the same time, some of the available books are really awesome",
+            contentMdFileUrl: "5-Awesome-Books-to-Learn-Spring-Boot",
+            githubLinkUrl: "https://github.com/ntwari-egide/Spring-boot-RESTFULL-API-crud",
+            totalForks: 10,
+            totalLikes: 0,
+            totalViews: 0,
+            PostedBy: "617fafcb6733b8d38cd92aa6",
+            createdAt: "2021-11-01T13:39:48.221Z",
+            updatedAt: "2021-11-01T13:39:48.221Z",
+            __v: 0
+            },
+            {
+              _id: "618011a7f17cf9fdd129b4a5",
+              postTypes: [
+              "617fb0d46733b8d38cd92ab0",
+              "617fb13c6733b8d38cd92ab4"
+              ],
+              coverImageUrl: "https://images.pexels.com/photos/34627/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+              postTitle: "5 Awesome Boodfadfks to Learn Spring Boot, Microservices, and Spring Cloud for Java developers",
+              postDescription: "Unfortunately, there are not many good books available on these frameworks, so we don't have many choices. At the same time, some of the available books are really awesome",
+              contentMdFileUrl: "5-Awesome-Books-to-Learn-Spring-Boot",
+              githubLinkUrl: "https://github.com/ntwari-egide/Spring-boot-RESTFULL-API-crud",
+              totalForks: 10,
+              totalLikes: 0,
+              totalViews: 0,
+              PostedBy: "617fafcb6733b8d38cd92aa6",
+              createdAt: "2021-11-01T13:39:48.221Z",
+              updatedAt: "2021-11-01T13:39:48.221Z",
+              __v: 0
+              }
     ]
 
     // const res = await fetch('https://fixandfork.herokuapp.com/api/v1/posts')

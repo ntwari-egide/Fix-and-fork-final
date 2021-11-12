@@ -32,6 +32,10 @@ const Home = ({
 
     const [translatorenabled,settranslatorenabled] = useState(false)
 
+    const [numberOfLikes,setNumberOfLikes] = useState(postData[0].totalLikes)
+
+    const [liked,setliked] = useState(false)
+
     const { transcript, resetTranscript } = useSpeechRecognition();
     const [isListening, setIsListening] = useState(false);
 
@@ -50,6 +54,10 @@ const Home = ({
         resetTranscript();
       };
 
+      useEffect(() => {
+        handleView(postData[0]._id)
+      }, [])
+
     const handlepptchange = useCallback((state, handle) => {
         if(state) setpptvisibility(true)
         else setpptvisibility(false)
@@ -67,6 +75,39 @@ const Home = ({
             handleListing()
         }
     }
+
+    const handleView = async (postId) => {
+
+       try {
+        await axios.get(`https://fixandfork.herokuapp.com/api/v1/posts/add-new-view/${postId}`)
+       } catch (error) {
+           console.log('Error in liking: ',error.response);
+       }
+
+    }
+
+    const handlePostLiking = async (postId) => {
+
+        try {
+            if(! liked) {
+                await axios.get(`https://fixandfork.herokuapp.com/api/v1/posts/add-new-like/${postId}`)
+                .then( () => {
+
+                    setliked(true)
+                    
+                    setNumberOfLikes(postData[0].totalLikes)
+                    
+                    message.success('You liked this post!')
+                })
+            }
+            else{
+                message.info("You have already liked this solution")
+            }
+        } catch (error) {
+            console.log('Error in liking: ',error.response);
+        }
+ 
+     }
 
 
     const responsive = {
@@ -193,9 +234,11 @@ const Home = ({
                     <Col span={4}  className="action-container">
                         <div className="post-actions-container">
                             <Tooltip placement="right" title={"Fork solution"}>
-                                <div className="action">
+                                <div className="action" onClick={() => {
+                                    message.info('There is no github link set by writter. ')
+                                }}>
                                     <div className="ratings-container">
-                                        89
+                                        {postData[0].totalForks}
                                     </div>
                                     <svg id="git-pull-request-line" xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29">
                                         <path id="Path_28" data-name="Path 28" d="M0,0H29V29H0Z" fill="none"/>
@@ -204,7 +247,7 @@ const Home = ({
                                     </div>
                             </Tooltip>
                             <Tooltip placement="right" title={"Total views"}>    
-                                <div className="action">
+                                <div className="action no-cursor">
                                     <div className="ratings-container">
                                         {postData[0].totalViews}
                                     </div>
@@ -213,9 +256,9 @@ const Home = ({
                             </Tooltip>
 
                             <Tooltip placement="right" title={"Like solution"}>
-                                <div className="action">
-                                    <div className="ratings-container">
-                                        {postData[0].totalLikes}
+                                <div className="action" onClick={() => handlePostLiking(postData[0]._id)}>
+                                    <div className={`ratings-container ${liked? 'bg-yellow':""}`}>
+                                        {numberOfLikes}
                                     </div>
                                     <BiHeart color="#3A3E3E" />
                                 </div>
@@ -235,7 +278,9 @@ const Home = ({
                             </Tooltip>
 
                             <Tooltip placement="right" title={"Github Link"}>
-                                <div className="action">
+                                <div className="action" onClick={() => {
+                                    message.info('There is no github link set by writter. ')
+                                }}>
                                     <GrGithub color="#3A3E3E" />
                                 </div>
                             </Tooltip>
@@ -280,9 +325,9 @@ const Home = ({
                     
                     <Col span={4}  className="action-container right-actions">
 
-                        <div className="post-actions-container" onClick={handlefullscreen.enter}>
+                        <div className="post-actions-container">
                             <Tooltip placement="left" title={"Present Solution"}>
-                                <div className="action">
+                                <div className="action"  onClick={handlefullscreen.enter}>
                                     <svg id="slideshow-2-line" xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29">
                                         <path id="Path_34" data-name="Path 34" d="M0,0H29V29H0Z" fill="none"/>
                                         <path id="Path_35" data-name="Path 35" d="M15.75,20.75V24.5H22V27H7V24.5h6.25V20.75H4.5A1.25,1.25,0,0,1,3.25,19.5V4.5H2V2H27V4.5H25.75v15a1.25,1.25,0,0,1-1.25,1.25Zm-10-2.5h17.5V4.5H5.75ZM12,7l6.25,4.375L12,15.75Z" fill="#535353"/>
@@ -292,7 +337,9 @@ const Home = ({
                             </Tooltip>
 
                             <Tooltip placement="left" title={"Edit Solution"}>
-                                <div className="action">
+                                <div className="action" onClick={() => {
+                                    message.info('You need to be this post editor so as to edit it!')
+                                }}>
                                     <MdOutlineEdit color="#3A3E3E" />
                                 </div>
                             </Tooltip>
