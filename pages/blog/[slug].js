@@ -241,8 +241,9 @@ const Home = ({
                             </Tooltip>
                         </div>
                     </Col>
-                    <Col span={16} className="main-post-content">
 
+
+                    <Col span={16} className="main-post-content">
 
                         {/* MAIN POST CONTAINER */}
                         

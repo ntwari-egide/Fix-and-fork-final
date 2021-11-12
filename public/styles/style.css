@@ -507,10 +507,52 @@ span.ant-typography.content {
     height: 75vh;
   }
 
+  .comment-section img.ant-image-img.post-profile-pic {
+    height: 3em;
+    border-radius: 50%;
+    width: 3em;
+    margin-top: 0.7em;
+    margin-right: 1em;
+    position: relative;
+    top: -5em;
+    border: 1.2px solid #0420BF;
+}
+
 
 
 /* Small screen devices (600px and above) */
 @media only screen and (max-width: 595px){
+
+  .comment-section img.ant-image-img.post-profile-pic {  
+    top: -2em;    
+}
+
+h4.ant-typography, .ant-typography h4 {
+  margin-bottom: 0.5em;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+  float: right;
+  margin-top: -4em;
+}
+
+h5.ant-typography.time {  
+  margin-top: -3em;
+}
+
+  .main-post-content{
+    max-width: 86vw !important;
+  }
+  
+  img.ant-image-img.post-cover-bg {
+    height: 49vh !important;
+    width: 86vw !important;
+}
+
+  .action-container{
+    display: none;
+  }
 
   .ant-space.ant-space-horizontal.ant-space-align-center{
     display: block;
@@ -541,7 +583,6 @@ span.ant-typography.content {
   .post-languages {
     float: right !important;
   }
-
   .post-container-1{
     width: 83vw;
   }
@@ -689,4 +730,8 @@ span.ant-typography.content {
   {
         margin-left: 0em !important;
   }
+}
+
+.footer-div {
+  background-color: white;
 }
