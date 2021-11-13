@@ -5,10 +5,8 @@ excerpt: 'Both Tailwind and Bootstrap are very popular CSS frameworks. In this a
 cover_image: '/images/posts/img2.jpg'
 ---
 
-<div>
 ## Preact - Performance Optimization by default
  A few months ago, I wrote an  [article based on optimizing react loading time](https://dev.to/nilanth/how-to-reduce-react-app-loading-time-by-70-1kmm), and most of the reader's comments were to try  [Preact](https://preactjs.com/)  to get default optimization. So I decided to try preact with the same app used for the previous article. Let's first get an intro about Preact.
-</div>
 
 Preact is a React alternative library with all the react features!.. Preact is a  **3KB**  library. It is very small compared to react, as react and react-dom gzip size is around  **41KB**  excluding react-scripts based on  [bundlephobia](https://bundlephobia.com/). Some highlighted features of preact are
 
@@ -24,11 +22,11 @@ I have developed the same app in React and Preact to test the app performance.
 
 [![React](https://res.cloudinary.com/practicaldev/image/fetch/s--M9BH7rkX--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/m21a7vqec6widzcafnor.png)](https://res.cloudinary.com/practicaldev/image/fetch/s--M9BH7rkX--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/m21a7vqec6widzcafnor.png)
 
-ReactJS
+### ReactJS
 
 [![Preact](https://res.cloudinary.com/practicaldev/image/fetch/s--Wxpqu9ow--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/kymf0t9tu6kca3rs74h3.png)](https://res.cloudinary.com/practicaldev/image/fetch/s--Wxpqu9ow--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/kymf0t9tu6kca3rs74h3.png)
 
-## PREACT
+### PREACT
 
 For react app I used  [Create React App](https://create-react-app.dev/)  and for Preact used  [preact-cli](https://github.com/preactjs/preact-cli). Preact also gives an option to convert your existing react app to preact using  [preact-compat](https://github.com/preactjs/preact-compat), but I have built an app from scratch to see the best result.
 
@@ -62,11 +60,11 @@ As we see in the above image. The entire App loads in  **1.3 secs**  and the Tim
 
 [![react-pc](https://res.cloudinary.com/practicaldev/image/fetch/s--mUQoGQaK--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ikbqb26kdpya7zgyv4t5.png)](https://res.cloudinary.com/practicaldev/image/fetch/s--mUQoGQaK--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ikbqb26kdpya7zgyv4t5.png)
 
-PREACT
+### PREACT
 
 [![preact-pc](https://res.cloudinary.com/practicaldev/image/fetch/s--aGNN4stW--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ua7mplzkyms3boc2afzm.png)](https://res.cloudinary.com/practicaldev/image/fetch/s--aGNN4stW--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ua7mplzkyms3boc2afzm.png)
 
-ReactJS
+### ReactJS
 
 As looking at the page loading side by side, Preact app loads well ahead compared to React and The  **Time to interact**  is also faster than react app. Preact is  [Progressive Web App](https://web.dev/progressive-web-apps/)(PWA) by default so instant loading on repeat visits.
 
@@ -93,7 +91,7 @@ Thank you for reading.
 
 Get more updates on  [Twitter](https://twitter.com/Nilanth).
 
-## [](https://dev.to/nilanth/dont-optimize-your-react-app-use-preact-instead-30og#more-blogs)More Blogs
+### More Blogs
 
 1.  [How to Structure Your React Redux App](https://dev.to/nilanth/how-to-structure-your-react-redux-app-4d24)
 2.  [How to Reduce React App Loading Time By 70%](https://dev.to/nilanth/how-to-reduce-react-app-loading-time-by-70-1kmm)

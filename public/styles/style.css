@@ -70,6 +70,24 @@ body {
         margin-bottom: 1em;
       }
 
+      .profile-avatar.sb-avatar__text {
+        height: 51px !important;
+        font-family: 'Euclid Circular B' !important;
+        width: 51px !important;
+    }
+
+      .profile-avatar {
+        border-radius: 78%;
+        position: relative;
+        top: -1em;
+        margin-right: 2.5em;
+    }
+
+    h4.ant-typography.contributor {
+      font-size: 15px;
+      text-transform: capitalize;
+    }
+
       .welcome-content h3.ant-typography {
         color: #7A7575;
         font-weight: 500;
@@ -301,7 +319,11 @@ body {
 }
 
 .ant-col.ant-col-16.main-post-content {
-  font-size: 18px;
+  font-size: 17px;
+}
+
+.ant-modal.search-modal {
+  width: 48vw !important;
 }
 
 h1.ant-typography.post-title {
@@ -322,6 +344,10 @@ h1.ant-typography.post-title {
 
 .no-cursor{
   cursor:default !important;
+}
+
+span.ant-input-group-wrapper.ant-input-group-wrapper-lg.ant-input-search.ant-input-search-large.ant-input-search-with-button {
+  width: 93% !important;
 }
 
 img.ant-image-img.post-cover-bg {

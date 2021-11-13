@@ -16,6 +16,9 @@ import "react-multi-carousel/lib/styles.css";
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import path from 'path'
 import axios from "axios"
+import Avatar from 'react-avatar';
+import * as timeago from 'timeago.js';
+
 
 const {Title, Text} = Typography
 
@@ -23,7 +26,8 @@ const Home = ({
     frontmatter: { title, date, cover_image },
     slug,
     content,
-    postData
+    postData,
+    comments
   }) => {
 
     const handlefullscreen = useFullScreenHandle()
@@ -267,7 +271,7 @@ const Home = ({
                             <Tooltip  placement="right" title={"Total comments"}>
                                 <div className="action">
                                     <div className="ratings-container">
-                                        3
+                                        {comments.length}
                                     </div>
                                     <svg id="chat-1-line" xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29">
                                         <path id="Path_32" data-name="Path 32" d="M0,0H29V29H0Z" fill="none"/>
@@ -306,19 +310,22 @@ const Home = ({
                         <Divider className="post-divider" />
 
                         <Space className="comment-section" direction="vertical">
-                            <Title level={3}>Comments (3)</Title>
+                            <Title level={3}>Comments ({comments.length})</Title>
 
-                            <Space direction="horizontal">
-                                <Image preview={false} src={'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'} className="post-profile-pic" />
-
-                                <Space className="comments-container" direction="vertical">
-                                    <Title level={4} className="contributor">Anonymous Contributor</Title>
-                                    <Title level={5} className="time">3 hours ago</Title>
-                                    <Text className="content">It will benefit you in your future career as well. It might take a lot of practice to see improvement, but don’t give up.</Text>
-
-                                    <Divider />
+                            {
+                                comments.map(commentDetails => {
+                                    return <Space direction="horizontal">
+                                    <Avatar name={commentDetails.commentedBy[0].username} size="33" className="profile-avatar" />
+    
+                                    <Space className="comments-container" direction="vertical">
+                                        <Title level={4} className="contributor">{commentDetails.commentedBy[0].username}</Title>
+                                        <Title level={5} className="time">{timeago.format(new Date(commentDetails.commentedAt))}</Title>
+                                        <Text className="content">{commentDetails.commentMessage}.</Text>    
+                                        <Divider />
+                                    </Space>
                                 </Space>
-                            </Space>
+                                })
+                            }
                         </Space>
 
                     </Col>
@@ -379,6 +386,12 @@ export async function getStaticProps({ params : {slug} }) {
 
     postData = data.data
 
+
+    let commentsData = await axios.get(`https://fixandfork.herokuapp.com/api/v1/comments/post-id/${postData[0]._id}`)
+
+    const comments = commentsData.data
+
+
     const markdownWithMeta = fs.readFileSync(
       path.join('content', slug + '.md'),
       'utf-8'
@@ -391,7 +404,8 @@ export async function getStaticProps({ params : {slug} }) {
         frontmatter,
         slug,
         content,
-        postData
+        postData,
+        comments
       },
     }
   }

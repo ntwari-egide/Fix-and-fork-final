@@ -1,4 +1,4 @@
-import { Button, Col, Image, PageHeader, Row, Space, Typography } from 'antd'
+import { Button, Col, Image, Modal, PageHeader, Row, Space, Typography } from 'antd'
 import Footer from '../components/FooterComponent'
 import Head from 'next/head'
 import 'antd/dist/antd.css';
@@ -25,6 +25,7 @@ const { Link } = Anchor;
 const {Title, Text} = Typography
 
 export default function Home({posts = []}) {
+
 
 
   const responsive = {
