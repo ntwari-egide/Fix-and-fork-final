@@ -45,7 +45,7 @@ export default function HeaderNavbar() {
       onOk={()=> setshowsearchmodal(false)}
       title={
         <Search
-          placeholder="input search text"
+          placeholder="Type to search a post"
           enterButton="Search"
           size="large"
           style={{

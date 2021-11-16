@@ -18,6 +18,7 @@ import 'tailwindcss/tailwind.css'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import axios from 'axios'
+import { useState } from 'react';
 
 
 const { Link } = Anchor;
@@ -26,7 +27,9 @@ const {Title, Text} = Typography
 
 export default function Home({posts = []}) {
 
+  const [allpostsfound,setallpostsfound] = useState(posts)
 
+  const [currentposttype,setcurrentposttype] = useState("All post types")
 
   const responsive = {
     desktop: {
@@ -45,6 +48,42 @@ export default function Home({posts = []}) {
       partialVisibilityGutter: 30 // this is needed to tell the amount of px that should be visible.
     }
   }
+
+
+  /**
+   * @description: finding all related posts using the post type
+   */
+
+  const findByPostTypeHandler = async (postType) => {
+
+    try {
+      const postsfound =  await axios.get(`https://fixandfork.herokuapp.com/api/v1/posts/post-type/${postType}`)
+
+      setallpostsfound(postsfound.data)
+
+    } catch (error) {
+      console.log('Error found: ',error)
+    }
+
+  }
+
+  /**
+   * @description: getting all posts
+   */
+
+   const getAllPostsHandler = async () => {
+
+    try {
+      const postsfound =  await axios.get(`https://fixandfork.herokuapp.com/api/v1/posts`)
+
+      setallpostsfound(postsfound.data)
+
+    } catch (error) {
+      console.log('Error found: ',error)
+    }
+
+  }
+  
 
   return (
     <div className="container">
@@ -205,7 +244,11 @@ export default function Home({posts = []}) {
                 </Space>
               </div>
               <div>
-                <Space direction="horizontal">
+                <Space direction="horizontal" onClick={() => alert('reached here')
+                //     setcurrentposttype("React Js")
+                //     findByPostTypeHandler('617fb0a16733b8d38cd92aac')
+                // }
+                }>
                   <Space direction="post-types">
                       <FaReact fontSize={16} color={"#535353"} />
                       <Title level={4}>React</Title>
@@ -214,7 +257,10 @@ export default function Home({posts = []}) {
                 </Space>
               </div>
 
-              <Space direction="horizontal">
+              <Space direction="horizontal" onClick={() => {
+                    setcurrentposttype("Vue Js")
+                    findByPostTypeHandler('617fb0b36733b8d38cd92aae')
+                }}>
                 <Space direction="post-types">
                     <FaVuejs fontSize={16} color={"#535353"} />
                     <Title level={4}>Vue Js</Title>
@@ -257,7 +303,10 @@ export default function Home({posts = []}) {
            <Space size="small" direction="horizontal">
               <div className="post-types-container">
                 <Space className="post-types">
-                  <Space>
+                  <Space onClick={() => {
+                    setcurrentposttype('All posts')
+                    getAllPostsHandler()
+                  }}>
                     <Col><ImEarth fontSize={16} color={"#535353"} /></Col>
                     <Col><Title level={4}>Global</Title></Col>
                     <Col><Title level={4}>150</Title></Col>
@@ -265,7 +314,10 @@ export default function Home({posts = []}) {
                 </Space>
 
                 <Space className="post-types">
-                  <Space>
+                  <Space onClick={()=> {
+                      setcurrentposttype("React Js")
+                      findByPostTypeHandler('617fb0a16733b8d38cd92aac')
+                  }}>
                     <Col><FaReact fontSize={16} color={"#535353"} /></Col>
                     <Col><Title level={4}>React Js</Title></Col>
                     <Col><Title level={4}>8</Title></Col>
@@ -273,7 +325,10 @@ export default function Home({posts = []}) {
                 </Space>
 
                 <Space className="post-types">
-                  <Space>
+                  <Space onClick={()=> {
+                      setcurrentposttype("Vue Js")
+                      findByPostTypeHandler('617fb0b36733b8d38cd92aae')
+                  }}>
                     <Col><FaVuejs fontSize={16} color={"#535353"} /></Col>
                     <Col><Title level={4}>Vue Js</Title></Col>
                     <Col><Title level={4}>7</Title></Col>
@@ -281,7 +336,10 @@ export default function Home({posts = []}) {
                 </Space>
 
                 <Space className="post-types">
-                  <Space>
+                  <Space onClick={()=> {
+                      setcurrentposttype("Spring Boot")
+                      findByPostTypeHandler('617fb0d46733b8d38cd92ab0')
+                  }}>
                     <Col><SiSpringboot fontSize={16} color={"#535353"} /></Col>
                     <Col><Title level={4}>Spring</Title></Col>
                     <Col><Title level={4}>2</Title></Col>
@@ -289,7 +347,10 @@ export default function Home({posts = []}) {
                 </Space>
 
                 <Space className="post-types">
-                  <Space>
+                  <Space onClick={()=> {
+                      setcurrentposttype("Java Programing")
+                      findByPostTypeHandler('617fb13c6733b8d38cd92ab4')
+                  }}>
                     <Col><SiJava fontSize={16} color={"#535353"} /></Col>
                     <Col><Title level={4}>Java</Title></Col>
                     <Col><Title level={4}>9</Title></Col>
@@ -297,7 +358,10 @@ export default function Home({posts = []}) {
                 </Space>
 
                 <Space className="post-types">
-                  <Space>
+                  <Space onClick={()=> {
+                      setcurrentposttype("Php Programing")
+                      findByPostTypeHandler('617fb1806733b8d38cd92ab6')
+                  }}>
                     <Col><DiPhp fontSize={16} color={"#535353"} /></Col>
                     <Col><Title level={4}>Php</Title></Col>
                     <Col><Title level={4}>50+</Title></Col>
@@ -305,7 +369,10 @@ export default function Home({posts = []}) {
                 </Space>
 
                 <Space className="post-types">
-                  <Space>
+                  <Space onClick={()=> {
+                      setcurrentposttype("Open Source Projects")
+                      findByPostTypeHandler('618ffa8adb161f1bcaa53a0f')
+                  }}>
                     <Col><FaProjectDiagram fontSize={16} color={"#535353"} /></Col>
                     <Col><Title level={4}>Open Source</Title></Col>
                     <Col><Title level={4}>4</Title></Col>
@@ -330,11 +397,12 @@ export default function Home({posts = []}) {
 
          <div className="bg-transparent">
           {
-            posts !== [] ?
-            <PostsComponent posts={posts} /> : 'No posts found'
+            Object.keys(allpostsfound).length !== 0 ?
+            <PostsComponent posts={allpostsfound} /> : 
+            <Space className="w-[100vw]">
+              <Title level={1} className="ml-4 no-post-title">Ooops, there is no post related to "{currentposttype}"</Title>
+            </Space>
           }
-          {/* <PostsComponent />
-          <PostsComponent /> */}
           <br /><br /><br />
          </div>
          <Footer/>
@@ -346,142 +414,142 @@ export default function Home({posts = []}) {
 
 export async function getStaticProps() {
 
-  let posts = [{
-    _id: "617ff283060056c27374468c",
-    postTypes: [
-    "617fb0a16733b8d38cd92aac"
-    ],
-    coverImageUrl: "https://res.cloudinary.com/practicaldev/image/fetch/s--iXdS49-U--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/mm5uqgq9eej1l4x8wchd.png",
-    postTitle: "Don't Optimize Your React App, Use Preact Instead",
-    postDescription: "Preact is designed for high school sophomores, the PreACT is a multiple choice exam that familiarizes students with the ACT",
-    contentMdFileUrl: "preact-is-designed-for-high-school",
-    githubLinkUrl: null,
-    totalForks: 0,
-    totalLikes: 0,
-    totalViews: 0,
-    PostedBy: "617faf006733b8d38cd92aa3",
-    createdAt: "2021-11-01T13:39:48.221Z",
-    updatedAt: "2021-11-01T13:39:48.221Z",
-    __v: 0
-    },
-    {
-    _id: "618011a7f17cf9fdd129b9a5",
-    postTypes: [
-    "617fb0d46733b8d38cd92ab0",
-    "617fb13c6733b8d38cd92ab4"
-    ],
-    coverImageUrl: "https://images.pexels.com/photos/34627/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-    postTitle: "5 Awesome Books to Learn Spring Boot, Microservices, and Spring Cloud for Java developers",
-    postDescription: "Unfortunately, there are not many good books available on these frameworks, so we don't have many choices. At the same time, some of the available books are really awesome",
-    contentMdFileUrl: "5-Awesome-Books-to-Learn-Spring-Boot",
-    githubLinkUrl: "https://github.com/ntwari-egide/Spring-boot-RESTFULL-API-crud",
-    totalForks: 10,
-    totalLikes: 0,
-    totalViews: 0,
-    PostedBy: "617fafcb6733b8d38cd92aa6",
-    createdAt: "2021-11-01T13:39:48.221Z",
-    updatedAt: "2021-11-01T13:39:48.221Z",
-    __v: 0
-    },
-    {
-      _id: "618011a7f17cf9fdd129b9a5",
-      postTypes: [
-      "617fb0d46733b8d38cd92ab0",
-      "617fb13c6733b8d38cd92ab4"
-      ],
-      coverImageUrl: "https://images.pexels.com/photos/34627/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-      postTitle: "5 Awesome Books to Learn Spring Boot, Microservices, and Spring Cloud for Java developers",
-      postDescription: "Unfortunately, there are not many good books available on these frameworks, so we don't have many choices. At the same time, some of the available books are really awesome",
-      contentMdFileUrl: "5-Awesome-Books-to-Learn-Spring-Boot",
-      githubLinkUrl: "https://github.com/ntwari-egide/Spring-boot-RESTFULL-API-crud",
-      totalForks: 10,
-      totalLikes: 0,
-      totalViews: 0,
-      PostedBy: "617fafcb6733b8d38cd92aa6",
-      createdAt: "2021-11-01T13:39:48.221Z",
-      updatedAt: "2021-11-01T13:39:48.221Z",
-      __v: 0
-      },
-      {
-        _id: "618011a7f17cf9fdd12979a5",
-        postTypes: [
-        "617fb0d46733b8d38cd92ab0",
-        "617fb13c6733b8d38cd92ab4"
-        ],
-        coverImageUrl: "https://images.pexels.com/photos/34627/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-        postTitle: "5 Awesome Books to Learn Spring Boot, Microservices, and Spring Cloud for Java developers",
-        postDescription: "Unfortunately, there are not many good books available on these frameworks, so we don't have many choices. At the same time, some of the available books are really awesome",
-        contentMdFileUrl: "5-Awesome-Books-to-Learn-Spring-Boot",
-        githubLinkUrl: "https://github.com/ntwari-egide/Spring-boot-RESTFULL-API-crud",
-        totalForks: 10,
-        totalLikes: 0,
-        totalViews: 0,
-        PostedBy: "617fafcb6733b8d38cd22aa6",
-        createdAt: "2021-11-01T13:39:48.221Z",
-        updatedAt: "2021-11-01T13:39:48.221Z",
-        __v: 0
-        },
-        {
-          _id: "618011a7f17cf9fdd129b4a5",
-          postTypes: [
-          "617fb0d46733b8d38cd92ab0",
-          "617fb13c6733b8d38cd92ab4"
-          ],
-          coverImageUrl: "https://images.pexels.com/photos/34627/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-          postTitle: "5 Awesome Boodfadfks to Learn Spring Boot, Microservices, and Spring Cloud for Java developers",
-          postDescription: "Unfortunately, there are not many good books available on these frameworks, so we don't have many choices. At the same time, some of the available books are really awesome",
-          contentMdFileUrl: "5-Awesome-Books-to-Learn-Spring-Boot",
-          githubLinkUrl: "https://github.com/ntwari-egide/Spring-boot-RESTFULL-API-crud",
-          totalForks: 10,
-          totalLikes: 0,
-          totalViews: 0,
-          PostedBy: "617fafcb6733b8d38cd92aa6",
-          createdAt: "2021-11-01T13:39:48.221Z",
-          updatedAt: "2021-11-01T13:39:48.221Z",
-          __v: 0
-          },
-          {
-            _id: "618011a7f17cf9fdd129b4a5",
-            postTypes: [
-            "617fb0d46733b8d38cd92ab0",
-            "617fb13c6733b8d38cd92ab4"
-            ],
-            coverImageUrl: "https://images.pexels.com/photos/34627/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-            postTitle: "5 Awesome Boodfadfks to Learn Spring Boot, Microservices, and Spring Cloud for Java developers",
-            postDescription: "Unfortunately, there are not many good books available on these frameworks, so we don't have many choices. At the same time, some of the available books are really awesome",
-            contentMdFileUrl: "5-Awesome-Books-to-Learn-Spring-Boot",
-            githubLinkUrl: "https://github.com/ntwari-egide/Spring-boot-RESTFULL-API-crud",
-            totalForks: 10,
-            totalLikes: 0,
-            totalViews: 0,
-            PostedBy: "617fafcb6733b8d38cd92aa6",
-            createdAt: "2021-11-01T13:39:48.221Z",
-            updatedAt: "2021-11-01T13:39:48.221Z",
-            __v: 0
-            },
-            {
-              _id: "618011a7f17cf9fdd129b4a5",
-              postTypes: [
-              "617fb0d46733b8d38cd92ab0",
-              "617fb13c6733b8d38cd92ab4"
-              ],
-              coverImageUrl: "https://images.pexels.com/photos/34627/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-              postTitle: "5 Awesome Boodfadfks to Learn Spring Boot, Microservices, and Spring Cloud for Java developers",
-              postDescription: "Unfortunately, there are not many good books available on these frameworks, so we don't have many choices. At the same time, some of the available books are really awesome",
-              contentMdFileUrl: "5-Awesome-Books-to-Learn-Spring-Boot",
-              githubLinkUrl: "https://github.com/ntwari-egide/Spring-boot-RESTFULL-API-crud",
-              totalForks: 10,
-              totalLikes: 0,
-              totalViews: 0,
-              PostedBy: "617fafcb6733b8d38cd92aa6",
-              createdAt: "2021-11-01T13:39:48.221Z",
-              updatedAt: "2021-11-01T13:39:48.221Z",
-              __v: 0
-              }
-    ]
+  // let posts = [{
+  //   _id: "617ff283060056c27374468c",
+  //   postTypes: [
+  //   "617fb0a16733b8d38cd92aac"
+  //   ],
+  //   coverImageUrl: "https://res.cloudinary.com/practicaldev/image/fetch/s--iXdS49-U--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/mm5uqgq9eej1l4x8wchd.png",
+  //   postTitle: "Don't Optimize Your React App, Use Preact Instead",
+  //   postDescription: "Preact is designed for high school sophomores, the PreACT is a multiple choice exam that familiarizes students with the ACT",
+  //   contentMdFileUrl: "preact-is-designed-for-high-school",
+  //   githubLinkUrl: null,
+  //   totalForks: 0,
+  //   totalLikes: 0,
+  //   totalViews: 0,
+  //   PostedBy: "617faf006733b8d38cd92aa3",
+  //   createdAt: "2021-11-01T13:39:48.221Z",
+  //   updatedAt: "2021-11-01T13:39:48.221Z",
+  //   __v: 0
+  //   },
+  //   {
+  //   _id: "618011a7f17cf9fdd129b9a5",
+  //   postTypes: [
+  //   "617fb0d46733b8d38cd92ab0",
+  //   "617fb13c6733b8d38cd92ab4"
+  //   ],
+  //   coverImageUrl: "https://images.pexels.com/photos/34627/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+  //   postTitle: "5 Awesome Books to Learn Spring Boot, Microservices, and Spring Cloud for Java developers",
+  //   postDescription: "Unfortunately, there are not many good books available on these frameworks, so we don't have many choices. At the same time, some of the available books are really awesome",
+  //   contentMdFileUrl: "5-Awesome-Books-to-Learn-Spring-Boot",
+  //   githubLinkUrl: "https://github.com/ntwari-egide/Spring-boot-RESTFULL-API-crud",
+  //   totalForks: 10,
+  //   totalLikes: 0,
+  //   totalViews: 0,
+  //   PostedBy: "617fafcb6733b8d38cd92aa6",
+  //   createdAt: "2021-11-01T13:39:48.221Z",
+  //   updatedAt: "2021-11-01T13:39:48.221Z",
+  //   __v: 0
+  //   },
+  //   {
+  //     _id: "618011a7f17cf9fdd129b9a5",
+  //     postTypes: [
+  //     "617fb0d46733b8d38cd92ab0",
+  //     "617fb13c6733b8d38cd92ab4"
+  //     ],
+  //     coverImageUrl: "https://images.pexels.com/photos/34627/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+  //     postTitle: "5 Awesome Books to Learn Spring Boot, Microservices, and Spring Cloud for Java developers",
+  //     postDescription: "Unfortunately, there are not many good books available on these frameworks, so we don't have many choices. At the same time, some of the available books are really awesome",
+  //     contentMdFileUrl: "5-Awesome-Books-to-Learn-Spring-Boot",
+  //     githubLinkUrl: "https://github.com/ntwari-egide/Spring-boot-RESTFULL-API-crud",
+  //     totalForks: 10,
+  //     totalLikes: 0,
+  //     totalViews: 0,
+  //     PostedBy: "617fafcb6733b8d38cd92aa6",
+  //     createdAt: "2021-11-01T13:39:48.221Z",
+  //     updatedAt: "2021-11-01T13:39:48.221Z",
+  //     __v: 0
+  //     },
+  //     {
+  //       _id: "618011a7f17cf9fdd12979a5",
+  //       postTypes: [
+  //       "617fb0d46733b8d38cd92ab0",
+  //       "617fb13c6733b8d38cd92ab4"
+  //       ],
+  //       coverImageUrl: "https://images.pexels.com/photos/34627/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+  //       postTitle: "5 Awesome Books to Learn Spring Boot, Microservices, and Spring Cloud for Java developers",
+  //       postDescription: "Unfortunately, there are not many good books available on these frameworks, so we don't have many choices. At the same time, some of the available books are really awesome",
+  //       contentMdFileUrl: "5-Awesome-Books-to-Learn-Spring-Boot",
+  //       githubLinkUrl: "https://github.com/ntwari-egide/Spring-boot-RESTFULL-API-crud",
+  //       totalForks: 10,
+  //       totalLikes: 0,
+  //       totalViews: 0,
+  //       PostedBy: "617fafcb6733b8d38cd22aa6",
+  //       createdAt: "2021-11-01T13:39:48.221Z",
+  //       updatedAt: "2021-11-01T13:39:48.221Z",
+  //       __v: 0
+  //       },
+  //       {
+  //         _id: "618011a7f17cf9fdd129b4a5",
+  //         postTypes: [
+  //         "617fb0d46733b8d38cd92ab0",
+  //         "617fb13c6733b8d38cd92ab4"
+  //         ],
+  //         coverImageUrl: "https://images.pexels.com/photos/34627/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+  //         postTitle: "5 Awesome Boodfadfks to Learn Spring Boot, Microservices, and Spring Cloud for Java developers",
+  //         postDescription: "Unfortunately, there are not many good books available on these frameworks, so we don't have many choices. At the same time, some of the available books are really awesome",
+  //         contentMdFileUrl: "5-Awesome-Books-to-Learn-Spring-Boot",
+  //         githubLinkUrl: "https://github.com/ntwari-egide/Spring-boot-RESTFULL-API-crud",
+  //         totalForks: 10,
+  //         totalLikes: 0,
+  //         totalViews: 0,
+  //         PostedBy: "617fafcb6733b8d38cd92aa6",
+  //         createdAt: "2021-11-01T13:39:48.221Z",
+  //         updatedAt: "2021-11-01T13:39:48.221Z",
+  //         __v: 0
+  //         },
+  //         {
+  //           _id: "618011a7f17cf9fdd129b4a5",
+  //           postTypes: [
+  //           "617fb0d46733b8d38cd92ab0",
+  //           "617fb13c6733b8d38cd92ab4"
+  //           ],
+  //           coverImageUrl: "https://images.pexels.com/photos/34627/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+  //           postTitle: "5 Awesome Boodfadfks to Learn Spring Boot, Microservices, and Spring Cloud for Java developers",
+  //           postDescription: "Unfortunately, there are not many good books available on these frameworks, so we don't have many choices. At the same time, some of the available books are really awesome",
+  //           contentMdFileUrl: "5-Awesome-Books-to-Learn-Spring-Boot",
+  //           githubLinkUrl: "https://github.com/ntwari-egide/Spring-boot-RESTFULL-API-crud",
+  //           totalForks: 10,
+  //           totalLikes: 0,
+  //           totalViews: 0,
+  //           PostedBy: "617fafcb6733b8d38cd92aa6",
+  //           createdAt: "2021-11-01T13:39:48.221Z",
+  //           updatedAt: "2021-11-01T13:39:48.221Z",
+  //           __v: 0
+  //           },
+  //           {
+  //             _id: "618011a7f17cf9fdd129b4a5",
+  //             postTypes: [
+  //             "617fb0d46733b8d38cd92ab0",
+  //             "617fb13c6733b8d38cd92ab4"
+  //             ],
+  //             coverImageUrl: "https://images.pexels.com/photos/34627/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+  //             postTitle: "5 Awesome Boodfadfks to Learn Spring Boot, Microservices, and Spring Cloud for Java developers",
+  //             postDescription: "Unfortunately, there are not many good books available on these frameworks, so we don't have many choices. At the same time, some of the available books are really awesome",
+  //             contentMdFileUrl: "5-Awesome-Books-to-Learn-Spring-Boot",
+  //             githubLinkUrl: "https://github.com/ntwari-egide/Spring-boot-RESTFULL-API-crud",
+  //             totalForks: 10,
+  //             totalLikes: 0,
+  //             totalViews: 0,
+  //             PostedBy: "617fafcb6733b8d38cd92aa6",
+  //             createdAt: "2021-11-01T13:39:48.221Z",
+  //             updatedAt: "2021-11-01T13:39:48.221Z",
+  //             __v: 0
+  //             }
+  //   ]
 
-    // const res = await fetch('https://fixandfork.herokuapp.com/api/v1/posts')
-    // const posts = await res.json()
+    const res = await fetch('https://fixandfork.herokuapp.com/api/v1/posts')
+    const posts = await res.json()
 
 
     return {

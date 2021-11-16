@@ -1,6 +1,11 @@
 import { Col, Image, Row, Space, Typography } from 'antd'
 import {ImEarth} from "react-icons/im"
 import {FaReact} from "react-icons/fa"
+import {FaVuejs} from "react-icons/fa"
+import {SiSpringboot} from "react-icons/si"
+import {SiJava} from "react-icons/si"
+import {DiPhp} from "react-icons/di"
+import {FaProjectDiagram} from "react-icons/fa"
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -17,13 +22,17 @@ export default function PostsComponent({ posts }) {
 
           let rowscontainer = []
 
-          for(let i=0; i < Math.ceil(posts.length / 3); i++ ) rowscontainer.push({num: i})
+          let rowcount = posts.length < 3 ? 1 :  Math.ceil(posts.length / 3)
+
+          for(let i=0; i < rowcount ; i++ ) rowscontainer.push({num: i})
 
             return rowscontainer.map(row => {
 
               let currentPosts = []
             
-              for(let k = row.num; k < row.num + 3 ; k ++ ) {
+              let rowcount = posts.length < 3 ? posts.length : row.num + 3
+
+              for(let k = row.num; k < rowcount ; k ++ ) {
 
                 currentPosts.push(posts[k])
               
@@ -40,7 +49,7 @@ export default function PostsComponent({ posts }) {
                     || posts.indexOf(post) + 1  ===  20 || posts.indexOf(post) + 1  ===  25 ? 
       
                     
-                      <Col span={11} onClick={() => router.push(`/blog/${post.contentMdFileUrl}`)}>
+                      <Col key={post._id} span={11} onClick={() => router.push(`/blog/${post.contentMdFileUrl}`)}>
                         <Space direction="horizontal" className="post-container-1">
                             <Image preview={false} className="cover-bg" src={post.coverImageUrl} />
                             <Space direction="vertical"> 
@@ -62,8 +71,16 @@ export default function PostsComponent({ posts }) {
                                 </Col>
                                 <Col span={8}>
                                   <Space direction="horizontal" className="post-languages">
-                                    <ImEarth fontSize={20}  color="#535353" />
-                                    <FaReact fontSize={20}  color="#535353" />
+                                    {
+                                      post.postTypes.map(posttype => {
+                                        if(posttype === '617fb0b36733b8d38cd92aae'){return <FaVuejs fontSize={20}  color="#535353" />}
+                                        else if(posttype === '617fb0d46733b8d38cd92ab0'){return <SiSpringboot fontSize={20}  color="#535353" />}
+                                        else if(posttype === '617fb11a6733b8d38cd92ab2'){return <FaProjectDiagram fontSize={20}  color="#535353" />}
+                                        else if(posttype === '617fb13c6733b8d38cd92ab4'){return <SiJava fontSize={20}  color="#535353" />}
+                                        else if(posttype === '617fb1806733b8d38cd92ab6'){ return <DiPhp fontSize={20}  color="#535353" />}
+                                        else if(posttype === '617fb0a16733b8d38cd92aac'){ return <FaReact fontSize={20}  color="#535353" />}
+                                      })
+                                    }
                                   </Space>
                                 </Col>
                               </Row>
@@ -71,7 +88,7 @@ export default function PostsComponent({ posts }) {
                         </Space>
                       </Col>:
                     
-                      <Col span={6}  onClick={() => router.push(`/blog/${post.contentMdFileUrl}`)}>
+                      <Col key={post._id} span={6}  onClick={() => router.push(`/blog/${post.contentMdFileUrl}`)}>
                         <Space direction="vertical" className="post-container-1  post-container-2 margin_left_10">
                             <Image preview={false} className="cover-bg-2" src={post.coverImageUrl} />
                             <Space direction="vertical">
@@ -90,8 +107,16 @@ export default function PostsComponent({ posts }) {
                                 </Col>
                                 <Col span={8}>
                                   <Space direction="horizontal" className="post-languages">
-                                    <ImEarth fontSize={20}  color="#535353" />
-                                    <FaReact fontSize={20}  color="#535353" />
+                                    {
+                                        post.postTypes.map(posttype => {
+                                          if(posttype === '617fb0b36733b8d38cd92aae'){return <FaVuejs fontSize={20}  color="#535353" />}
+                                          else if(posttype === '617fb0d46733b8d38cd92ab0'){return <SiSpringboot fontSize={20}  color="#535353" />}
+                                          else if(posttype === '617fb11a6733b8d38cd92ab2'){return <FaProjectDiagram fontSize={20}  color="#535353" />}
+                                          else if(posttype === '617fb13c6733b8d38cd92ab4'){return <SiJava fontSize={20}  color="#535353" />}
+                                          else if(posttype === '617fb1806733b8d38cd92ab6'){ return <DiPhp fontSize={20}  color="#535353" />}
+                                          else if(posttype === '617fb0a16733b8d38cd92aac'){ return <FaReact fontSize={20}  color="#535353" />}
+                                        })
+                                      }
                                   </Space>
                                 </Col>
                               </Row>
